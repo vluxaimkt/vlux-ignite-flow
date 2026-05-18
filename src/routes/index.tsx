@@ -1,26 +1,70 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/landing/header";
+import { Hero } from "@/components/landing/hero";
+import { Problem } from "@/components/landing/problem";
+import { Solution } from "@/components/landing/solution";
+import { BeforeAfter } from "@/components/landing/before-after";
+import { UseCases } from "@/components/landing/use-cases";
+import { Demos } from "@/components/landing/demos";
+import { Process } from "@/components/landing/process";
+import { Trust } from "@/components/landing/trust";
+import { FinalCTA } from "@/components/landing/final-cta";
+import { Footer } from "@/components/landing/footer";
+import { StickyMobileCTA } from "@/components/landing/sticky-mobile-cta";
+import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "VLUX · Convierte procesos manuales en sistemas inteligentes" },
+      {
+        name: "description",
+        content:
+          "VLUX automatiza operaciones, conecta herramientas y aplica IA para que tu empresa opere con más control, visibilidad y velocidad.",
+      },
+      { property: "og:title", content: "VLUX · AI Transformation Partner" },
+      {
+        property: "og:description",
+        content:
+          "Automatización, software a la medida, dashboards e IA aplicada para empresas que operan con Excel, WhatsApp y sistemas desconectados.",
+      },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  useReveal();
+  return (
+    <main className="relative min-h-screen overflow-x-hidden">
+      <Header />
+      <Hero />
+      <Problem />
+      <Solution />
+      <BeforeAfter />
+      <UseCases />
+      <Demos />
+      <Process />
+      <Trust />
+      <FinalCTA />
+      <Footer />
+      <StickyMobileCTA />
+    </main>
+  );
 }
