@@ -72,18 +72,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Vlux - AI Transformation Partner" },
-      { name: "description", content: "Transformamos tus operaciones en IA" },
+      { title: "Lovable App" },
+      { name: "description", content: "Lovable Generated Project" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Vlux - AI Transformation Partner" },
-      { property: "og:description", content: "Transformamos tus operaciones en IA" },
+      { property: "og:title", content: "Lovable App" },
+      { property: "og:description", content: "Lovable Generated Project" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Vlux - AI Transformation Partner" },
-      { name: "twitter:description", content: "Transformamos tus operaciones en IA" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bf66175f-9c63-49fd-951c-b2118590ae78/id-preview-229712c8--c313307d-ff9f-44bc-8d08-f565e95458db.lovable.app-1779145366542.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bf66175f-9c63-49fd-951c-b2118590ae78/id-preview-229712c8--c313307d-ff9f-44bc-8d08-f565e95458db.lovable.app-1779145366542.png" },
     ],
     links: [
       {
