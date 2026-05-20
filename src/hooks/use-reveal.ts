@@ -19,7 +19,16 @@ export function useReveal() {
       },
       { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
     );
-    els.forEach((el) => io.observe(el));
+    els.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add("is-visible");
+        return;
+      }
+
+      io.observe(el);
+    });
     return () => io.disconnect();
   }, []);
 }

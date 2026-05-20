@@ -1,4 +1,5 @@
 import { FileSpreadsheet, MessageCircle, FileText, Network, EyeOff } from "lucide-react";
+import { LiquidGlassIcon } from "@/components/LiquidGlassIcon";
 
 const problems = [
   {
@@ -10,11 +11,11 @@ const problems = [
         {Array.from({ length: 24 }).map((_, i) => (
           <div
             key={i}
-            className={`p-1.5 bg-[color:var(--surface-2)] ${
-              i % 7 === 0 ? "text-[color:var(--danger)]" : "text-[color:var(--muted-foreground)]"
+            className={`p-1.5 bg-black/30 backdrop-blur-md rounded-md ${
+              i % 7 === 0 ? "text-[color:var(--danger)]" : "text-white/60"
             }`}
           >
-            {i % 5 === 0 ? "#REF!" : (Math.random() * 100).toFixed(0)}
+            {i % 5 === 0 ? "#REF!" : ((i * 37 + 18) % 91) + 9}
           </div>
         ))}
       </div>
@@ -33,10 +34,8 @@ const problems = [
         ].map((m, i) => (
           <div key={i} className={`flex ${m.me ? "justify-end" : "justify-start"}`}>
             <div
-              className={`text-[10px] px-2 py-1 rounded-lg max-w-[80%] ${
-                m.me
-                  ? "bg-[color:var(--mint)]/15 text-[color:var(--mint)]"
-                  : "bg-[color:var(--surface-3)] text-[color:var(--muted-foreground)]"
+              className={`text-[10px] px-2 py-1 rounded-lg max-w-[80%] backdrop-blur-md ${
+                m.me ? "bg-white/10 text-white" : "bg-black/30 text-white/70"
               }`}
             >
               {m.t}
@@ -60,7 +59,7 @@ const problems = [
             />
           </div>
         ))}
-        <div className="text-[10px] text-[color:var(--muted-foreground)] font-mono">retraso · 72h</div>
+        <div className="text-[10px] text-white/60 font-mono">retraso · 72h</div>
       </div>
     ),
   },
@@ -71,10 +70,23 @@ const problems = [
     visual: (
       <svg viewBox="0 0 120 60" className="w-full h-16">
         {[
-          [20, 15], [60, 10], [100, 18], [25, 50], [70, 48], [95, 45],
+          [20, 15],
+          [60, 10],
+          [100, 18],
+          [25, 50],
+          [70, 48],
+          [95, 45],
         ].map(([x, y], i) => (
           <g key={i}>
-            <rect x={x - 8} y={y - 6} width="16" height="12" rx="2" fill="oklch(0.26 0.025 240)" stroke="oklch(0.32 0.025 230 / 0.7)" />
+            <rect
+              x={x - 8}
+              y={y - 6}
+              width="16"
+              height="12"
+              rx="2"
+              fill="oklch(0.26 0.025 240)"
+              stroke="oklch(0.32 0.025 230 / 0.7)"
+            />
           </g>
         ))}
         <path d="M 20 15 L 100 45" stroke="oklch(0.65 0.22 25 / 0.6)" strokeDasharray="2 2" />
@@ -89,8 +101,8 @@ const problems = [
     desc: "Decisiones a ciegas porque los datos no están a la mano cuando se necesitan.",
     visual: (
       <div className="relative h-16 rounded bg-[color:var(--surface-3)] overflow-hidden">
-        <div className="absolute inset-0 backdrop-blur-md bg-[color:var(--surface)]/60 flex items-center justify-center">
-          <span className="text-[10px] font-mono text-[color:var(--muted-foreground)]">datos no disponibles</span>
+        <div className="absolute inset-0 backdrop-blur-md bg-black/40 flex items-center justify-center">
+          <span className="text-[10px] font-mono text-white/60">datos no disponibles</span>
         </div>
       </div>
     ),
@@ -103,12 +115,13 @@ export function Problem() {
       <div className="max-w-7xl mx-auto px-5 md:px-8">
         <div className="max-w-2xl reveal">
           <span className="chip">El problema</span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-display font-bold leading-tight">
+          <h2 className="mt-4 text-3xl md:text-5xl font-display font-bold leading-tight glass-text-shimmer">
             Así se pierde control cuando la operación{" "}
             <span className="text-[color:var(--danger)]">vive dispersa.</span>
           </h2>
-          <p className="mt-4 text-[color:var(--muted-foreground)]">
-            La mayoría de las empresas no tienen un problema de personas: tienen un problema de sistemas.
+          <p className="mt-4 text-white/70">
+            La mayoría de las empresas no tienen un problema de personas: tienen un problema de
+            sistemas.
           </p>
         </div>
 
@@ -116,22 +129,18 @@ export function Problem() {
           {problems.map((p, i) => (
             <div
               key={p.title}
-              className={`surface-card surface-card-hover p-5 reveal ${
+              className={`relative glass-container glass-blur-2xl glass-edge-glow border border-white/20 bg-black/40 before:absolute before:inset-0 before:rounded-3xl before:border-t before:border-white/30 before:pointer-events-none p-5 rounded-3xl shadow-2xl shadow-black/40 hover:scale-[1.02] transition-all duration-300 reveal ${
                 i === 0 ? "lg:col-span-2" : ""
               }`}
             >
               <div className="flex items-start gap-3 mb-4">
-                <div className="w-9 h-9 rounded-lg bg-[color:var(--danger)]/10 border border-[color:var(--danger)]/30 flex items-center justify-center shrink-0">
-                  <p.icon className="w-4 h-4 text-[color:var(--danger)]" />
-                </div>
+                <LiquidGlassIcon icon={p.icon} tone="danger" size="sm" />
                 <div>
                   <div className="font-display font-semibold">{p.title}</div>
-                  <div className="text-xs text-[color:var(--muted-foreground)] mt-1 leading-relaxed">
-                    {p.desc}
-                  </div>
+                  <div className="text-xs text-white/60 mt-1 leading-relaxed">{p.desc}</div>
                 </div>
               </div>
-              <div className="rounded-lg bg-[color:var(--surface)]/60 border border-[color:var(--hairline)] p-3">
+              <div className="rounded-2xl bg-black/20 border border-white/5 p-3 backdrop-blur-md">
                 {p.visual}
               </div>
             </div>

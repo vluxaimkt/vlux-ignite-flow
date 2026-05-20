@@ -52,7 +52,9 @@ export const Route = createFileRoute("/")({
 function Index() {
   useReveal();
   return (
-    <main className="relative min-h-screen overflow-x-hidden">
+    <main className="bg-[#030712] relative min-h-screen overflow-x-hidden">
+      <div className="fixed inset-0 pointer-events-none bg-[radial-gradient(circle_at_18%_12%,rgba(0,224,255,0.14),transparent_32rem),radial-gradient(circle_at_82%_46%,rgba(0,255,195,0.08),transparent_34rem),linear-gradient(145deg,rgba(1,4,9,0.96),rgba(3,16,25,0.98))]" />
+
       <Header />
       <Hero />
       <Problem />

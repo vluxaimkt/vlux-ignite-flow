@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { site } from "@/config/site";
+import { vluxAssets } from "@/config/vluxAssets";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -15,21 +16,23 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+      className={`fixed top-4 inset-x-4 max-w-7xl mx-auto rounded-3xl z-50 transition-all duration-300 ${
         scrolled
-          ? "backdrop-blur-xl bg-[color:var(--background)]/70 border-b border-[color:var(--hairline)]"
-          : "bg-transparent"
+          ? "vlux-glass-card vlux-neon-border shadow-2xl shadow-black/40"
+          : "border border-[color:var(--cyan-glow)]/10 bg-black/10 backdrop-blur-md"
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 md:px-8 h-16 md:h-18 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2 group">
-          <span className="relative inline-flex w-9 h-9 rounded-lg items-center justify-center bg-gradient-to-br from-[color:var(--cyan-glow)] to-[color:var(--mint)] glow-cyan-sm">
-            <Sparkles className="w-4 h-4 text-[color:var(--primary-foreground)]" />
-          </span>
-          <span className="font-display font-bold text-xl tracking-tight">
-            {site.brand}
-          </span>
-          <span className="hidden sm:inline text-[10px] uppercase tracking-[0.18em] text-[color:var(--muted-foreground)] ml-1">
+          <img
+            src={vluxAssets.logos.main}
+            alt="VLUX"
+            className="vlux-logo-mark"
+            loading="eager"
+            decoding="async"
+          />
+          <span className="font-display font-bold text-xl tracking-tight">{site.brand}</span>
+          <span className="hidden sm:inline text-[10px] uppercase tracking-[0.18em] text-white/60 ml-1">
             {site.tagline}
           </span>
         </a>
@@ -39,7 +42,7 @@ export function Header() {
             <a
               key={n.href}
               href={n.href}
-              className="text-sm text-[color:var(--muted-foreground)] hover:text-[color:var(--foreground)] transition-colors"
+              className="text-sm text-white/70 hover:text-white transition-colors"
             >
               {n.label}
             </a>
@@ -47,12 +50,14 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href={site.bookingUrl} className="hidden md:inline-flex btn-primary">
-            Agendar diagnóstico
-          </a>
+          <div className="hidden md:block">
+            <a href={site.bookingUrl} className="vlux-premium-button px-6 py-2.5">
+              Agendar diagnóstico
+            </a>
+          </div>
           <button
             onClick={() => setOpen((o) => !o)}
-            className="lg:hidden btn-ghost !p-2"
+            className="lg:hidden glass-button rounded-full bg-white/10 border border-white/20 text-white !p-2 hover:bg-white/20 hover:scale-[1.03] transition-all duration-300"
             aria-label="Menú"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -61,19 +66,23 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-[color:var(--hairline)] bg-[color:var(--background)]/95 backdrop-blur-xl">
+        <div className="lg:hidden mt-2 relative vlux-glass-card vlux-neon-border shadow-2xl shadow-black/40 rounded-3xl overflow-hidden">
           <div className="px-5 py-4 flex flex-col gap-1">
             {site.nav.map((n) => (
               <a
                 key={n.href}
                 href={n.href}
                 onClick={() => setOpen(false)}
-                className="py-3 text-[color:var(--foreground)] border-b border-[color:var(--hairline)]"
+                className="py-3 text-white border-b border-white/10"
               >
                 {n.label}
               </a>
             ))}
-            <a href={site.bookingUrl} className="btn-primary mt-4 w-full" onClick={() => setOpen(false)}>
+            <a
+              href={site.bookingUrl}
+              className="vlux-premium-button mt-4 w-full"
+              onClick={() => setOpen(false)}
+            >
               Agendar diagnóstico
             </a>
           </div>

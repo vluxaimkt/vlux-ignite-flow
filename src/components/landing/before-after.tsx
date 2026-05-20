@@ -20,7 +20,7 @@ export function BeforeAfter() {
       <div className="max-w-7xl mx-auto px-5 md:px-8">
         <div className="max-w-2xl reveal">
           <span className="chip">Transformación</span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-display font-bold leading-tight">
+          <h2 className="mt-4 text-3xl md:text-5xl font-display font-bold leading-tight glass-text-shimmer">
             Antes vs. Después.
           </h2>
         </div>
@@ -28,10 +28,12 @@ export function BeforeAfter() {
         <div className="mt-12 grid md:grid-cols-2 gap-5 relative">
           <ArrowRight className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 text-[color:var(--cyan-glow)] glow-cyan-sm rounded-full bg-[color:var(--background)] p-2 z-10" />
 
-          <div className="surface-card p-6 md:p-7 reveal">
+          <div className="relative glass-container glass-blur-2xl glass-edge-glow border border-white/20 bg-black/40 before:absolute before:inset-0 before:rounded-3xl before:border-t before:border-white/30 before:pointer-events-none rounded-3xl p-6 md:p-7 shadow-2xl shadow-black/40 hover:scale-[1.02] transition-all duration-300 reveal">
             <div className="flex items-center justify-between mb-5">
-              <div className="text-xs font-mono uppercase tracking-wider text-[color:var(--danger)]">Antes</div>
-              <span className="text-[10px] text-[color:var(--muted-foreground)] font-mono">operación dispersa</span>
+              <div className="text-xs font-mono uppercase tracking-wider text-[color:var(--danger)]">
+                Antes
+              </div>
+              <span className="text-[10px] text-white/60 font-mono">operación dispersa</span>
             </div>
             <ul className="space-y-3">
               {before.map((b) => (
@@ -39,7 +41,7 @@ export function BeforeAfter() {
                   <span className="w-5 h-5 rounded-md bg-[color:var(--danger)]/10 border border-[color:var(--danger)]/30 flex items-center justify-center shrink-0 mt-0.5">
                     <X className="w-3 h-3 text-[color:var(--danger)]" />
                   </span>
-                  <span className="text-sm text-[color:var(--muted-foreground)]">{b}</span>
+                  <span className="text-sm text-white/70">{b}</span>
                 </li>
               ))}
             </ul>
@@ -57,10 +59,14 @@ export function BeforeAfter() {
             </div>
           </div>
 
-          <div className="surface-card p-6 md:p-7 reveal glow-cyan-sm">
+          <div className="relative glass-container glass-blur-2xl glass-edge-glow border border-white/20 bg-black/40 before:absolute before:inset-0 before:rounded-3xl before:border-t before:border-white/30 before:pointer-events-none rounded-3xl p-6 md:p-7 shadow-2xl shadow-[0_0_30px_rgba(0,255,255,0.1)] hover:scale-[1.02] transition-all duration-300 reveal">
             <div className="flex items-center justify-between mb-5">
-              <div className="text-xs font-mono uppercase tracking-wider text-[color:var(--cyan-glow)]">Después</div>
-              <span className="text-[10px] text-[color:var(--mint)] font-mono">sistema medible</span>
+              <div className="text-xs font-mono uppercase tracking-wider text-[color:var(--cyan-glow)]">
+                Después
+              </div>
+              <span className="text-[10px] text-[color:var(--mint)] font-mono">
+                sistema medible
+              </span>
             </div>
             <ul className="space-y-3">
               {after.map((a) => (
