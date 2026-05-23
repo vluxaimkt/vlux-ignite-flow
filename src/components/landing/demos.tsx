@@ -38,26 +38,27 @@ const demos = [
 
 export function Demos() {
   return (
-    <section id="demos" className="py-20 md:py-28 relative">
+    <section id="demos" className="py-20 md:py-28 relative" data-section>
       <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-5 md:px-8 relative">
-        <div className="max-w-2xl reveal">
+        <div className="max-w-2xl">
           <span className="chip">Demos / MVPs</span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-display font-bold leading-tight glass-text-shimmer">
+          <h2 className="section-title" data-section-heading>
             Productos listos para <span className="text-gradient-cyan">probar hoy.</span>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="section-copy" data-section-copy>
             Bases listas que adaptamos a tu operación en semanas, no meses.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-stagger>
           {demos.map((d, i) => (
             <div
               key={d.title}
-              className={`vlux-glass-card vlux-neon-border overflow-hidden flex flex-col rounded-3xl shadow-2xl shadow-black/40 hover:scale-[1.02] transition-all duration-300 reveal group ${
+              className={`vlux-glass-card vlux-neon-border overflow-hidden flex flex-col rounded-3xl shadow-xl shadow-black/30 surface-card-hover group ${
                 i === 0 ? "lg:col-span-2" : ""
               }`}
+              data-stagger-item
             >
               <div
                 className={`p-4 border-b border-[color:var(--cyan-glow)]/30 bg-black/40 backdrop-blur-sm relative overflow-hidden ${i === 0 ? "min-h-[200px]" : "min-h-[160px]"}`}

@@ -1,37 +1,30 @@
 import { Calendar } from "lucide-react";
 import { site } from "@/config/site";
-import { VluxAssetIcon } from "@/components/VluxAssetIcon";
 import { vluxAssets } from "@/config/vluxAssets";
 
 export function FinalCTA() {
   return (
-    <section id="agendar" className="py-20 md:py-28 relative">
+    <section id="agendar" className="py-20 md:py-28 relative" data-section>
       <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="vlux-glass-card vlux-neon-border relative rounded-3xl overflow-hidden p-8 md:p-14 shadow-2xl shadow-black/40 reveal">
+        <div
+          className="vlux-glass-card vlux-neon-border relative rounded-3xl overflow-hidden p-8 md:p-14 shadow-2xl shadow-black/40"
+          data-cta-panel
+        >
           <div className="vlux-glow -top-32 -right-32 w-96 h-96" />
           <div className="vlux-glow -bottom-32 -left-32 w-96 h-96 opacity-70" />
           <div className="absolute inset-0 grid-bg opacity-40" />
-          <img
-            src={vluxAssets.backgrounds.watermark}
-            alt=""
-            aria-hidden="true"
-            className="vlux-watermark right-8 bottom-[-8rem] w-[26rem]"
-            loading="lazy"
-            decoding="async"
-          />
-
           <div className="relative grid lg:grid-cols-[1.4fr_1fr] gap-10 items-center">
             <div>
               <span className="chip">
                 <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--cyan-glow)] pulse-dot" />
                 Diagnóstico sin costo
               </span>
-              <h2 className="mt-5 text-3xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.05] glass-text-shimmer">
+              <h2 className="mt-5 text-3xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.05] text-balance">
                 ¿Listo para <span className="text-gradient-cyan">transformar tu empresa?</span>
               </h2>
               <p className="mt-5 text-white/70 md:text-lg max-w-xl">
-                Agenda un diagnóstico gratuito y descubre qué procesos conviene automatizar primero.
-                45 minutos. Sin compromiso. Sin venta forzada.
+                Agenda una sesión de 45 minutos y sal con prioridades claras: qué automatizar
+                primero, qué impacto esperar y cómo ejecutar por etapas sin frenar tu operación.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <a href={site.bookingUrl} className="vlux-premium-button w-full sm:w-auto">
@@ -58,13 +51,6 @@ export function FinalCTA() {
             </div>
 
             <div className="relative">
-              <span className="absolute -top-20 right-0 hidden md:block">
-                <VluxAssetIcon
-                  src={vluxAssets.icons.target}
-                  alt="Objetivo de transformación VLUX"
-                  size="hero"
-                />
-              </span>
               <div className="vlux-glass-card vlux-neon-border rounded-3xl p-5 backdrop-blur-md">
                 <div className="text-[10px] font-mono uppercase tracking-wider text-white/60 mb-3">
                   Qué incluye el diagnóstico

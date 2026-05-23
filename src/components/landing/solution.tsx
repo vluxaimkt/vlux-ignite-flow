@@ -58,29 +58,31 @@ const integrations = [
   { name: "Excel", asset: vluxAssets.integrations.excel },
   { name: "SolidWorks", asset: vluxAssets.integrations.solidworks },
   { name: "Global Shop", asset: vluxAssets.integrations.globalShop },
-  { name: "Google", asset: vluxAssets.integrations.google },
   { name: "API", asset: vluxAssets.integrations.api },
   { name: "Base de datos", asset: vluxAssets.integrations.database },
 ];
 
 export function Solution() {
   return (
-    <section id="servicios" className="py-20 md:py-28 relative">
+    <section id="servicios" className="py-20 md:py-28 relative" data-section>
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--cyan-glow)]/40 to-transparent" />
       <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="max-w-3xl reveal">
+        <div className="max-w-3xl">
           <span className="chip">La solución</span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-display font-bold leading-tight glass-text-shimmer">
+          <h2 className="section-title" data-section-heading>
             VLUX transforma tu operación en un{" "}
             <span className="text-gradient-cyan">sistema medible.</span>
           </h2>
-          <p className="mt-4 text-white/70 md:text-lg">
-            Diseñamos cómo debería operar tu empresa y construimos el software, los dashboards y la
-            IA para que cada área trabaje con datos claros y procesos conectados.
+          <p className="section-copy" data-section-copy>
+            Definimos el flujo ideal de tu negocio y lo aterrizamos en software, datos conectados e
+            IA útil para operar y decidir mejor, todos los días.
           </p>
         </div>
 
-        <div className="mt-12 vlux-glass-card vlux-neon-border p-5 md:p-7 rounded-3xl shadow-2xl shadow-black/40 reveal">
+        <div
+          className="mt-12 vlux-glass-card vlux-neon-border p-5 md:p-7 rounded-3xl shadow-xl shadow-black/35"
+          data-stagger
+        >
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-5 items-center">
             <div>
               <div className="text-[10px] uppercase tracking-wider text-[color:var(--danger)] font-mono mb-3">
@@ -141,11 +143,12 @@ export function Solution() {
           </div>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" data-stagger>
           {services.map((service) => (
             <div
               key={service.title}
-              className="vlux-glass-card vlux-neon-border p-5 md:p-6 rounded-3xl shadow-2xl shadow-black/40 hover:scale-[1.02] transition-all duration-300 reveal group"
+              className="vlux-glass-card vlux-neon-border p-5 md:p-6 rounded-3xl shadow-xl shadow-black/30 surface-card-hover group"
+              data-stagger-item
             >
               <VluxAssetIcon
                 src={service.asset}
@@ -169,25 +172,29 @@ export function Solution() {
           ))}
         </div>
 
-        <div className="mt-14 reveal">
+        <div className="mt-14">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <span className="chip">Integraciones</span>
-              <h3 className="mt-4 text-2xl md:text-4xl font-display font-bold glass-text-shimmer">
+              <h3 className="mt-4 text-2xl md:text-4xl font-display font-bold" data-section-heading>
                 Tus herramientas conectadas en una sola operación.
               </h3>
             </div>
-            <p className="max-w-xl text-sm md:text-base text-white/65">
+            <p className="max-w-xl text-sm md:text-base text-white/70" data-section-copy>
               Conectamos los canales, hojas de cálculo, APIs y sistemas que ya usa tu equipo para
               reducir capturas dobles y errores operativos.
             </p>
           </div>
 
-          <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3">
+          <div
+            className="mt-8 mx-auto grid w-full max-w-5xl grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3"
+            data-stagger
+          >
             {integrations.map((integration) => (
               <div
                 key={integration.name}
-                className="vlux-glass-card vlux-neon-border p-4 rounded-2xl text-center group hover:scale-[1.02] transition-all duration-300"
+                className="vlux-glass-card vlux-neon-border p-4 rounded-2xl text-center group surface-card-hover"
+                data-stagger-item
               >
                 <VluxAssetIcon
                   src={integration.asset}

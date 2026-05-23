@@ -7,20 +7,31 @@ export function Footer() {
     {
       title: "Servicios",
       links: [
-        "Automatización",
-        "Software a la medida",
-        "Dashboards",
-        "IA aplicada",
-        "Integraciones",
+        { label: "Automatización", href: "#servicios" },
+        { label: "Software a la medida", href: "#servicios" },
+        { label: "Dashboards", href: "#servicios" },
+        { label: "IA aplicada", href: "#servicios" },
+        { label: "Integraciones", href: "#servicios" },
       ],
     },
     {
       title: "Casos de uso",
-      links: ["Manufactura", "Administración", "Ventas", "Atención al cliente", "Recursos Humanos"],
+      links: [
+        { label: "Manufactura", href: "#casos" },
+        { label: "Administración", href: "#casos" },
+        { label: "Ventas", href: "#casos" },
+        { label: "Atención al cliente", href: "#casos" },
+        { label: "Recursos Humanos", href: "#casos" },
+      ],
     },
     {
       title: "Empresa",
-      links: ["Proceso", "Demos", "Recursos", "Contacto"],
+      links: [
+        { label: "Proceso", href: "#proceso" },
+        { label: "Demos", href: "#demos" },
+        { label: "Recursos", href: "#recursos" },
+        { label: "Contacto", href: "#agendar" },
+      ],
     },
   ];
 
@@ -30,7 +41,7 @@ export function Footer() {
         src={vluxAssets.backgrounds.watermark}
         alt=""
         aria-hidden="true"
-        className="vlux-watermark left-[-5rem] top-8 w-[24rem]"
+        className="vlux-watermark left-[-1.5rem] top-8 w-[24rem]"
         loading="lazy"
         decoding="async"
       />
@@ -60,12 +71,12 @@ export function Footer() {
               </div>
               <ul className="space-y-2.5">
                 {c.links.map((l) => (
-                  <li key={l}>
+                  <li key={l.label}>
                     <a
-                      href="#"
+                      href={l.href}
                       className="text-sm text-white/70 hover:text-white transition-colors"
                     >
-                      {l}
+                      {l.label}
                     </a>
                   </li>
                 ))}

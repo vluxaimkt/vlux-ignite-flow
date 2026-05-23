@@ -38,26 +38,27 @@ export function UseCases() {
   const caseIconTones = ["warn", "cyan", "positive", "mint", "cyan", "mint"] as const;
 
   return (
-    <section id="casos" className="py-20 md:py-28 relative">
+    <section id="casos" className="py-20 md:py-28 relative" data-section>
       <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="flex items-end justify-between flex-wrap gap-4 reveal">
+        <div className="flex items-end justify-between flex-wrap gap-4">
           <div className="max-w-2xl">
             <span className="chip">Casos de uso</span>
-            <h2 className="mt-4 text-3xl md:text-5xl font-display font-bold leading-tight glass-text-shimmer">
+            <h2 className="section-title" data-section-heading>
               Procesos que ya estamos resolviendo.
             </h2>
           </div>
-          <p className="text-sm text-white/70 max-w-sm">
+          <p className="text-sm text-white/70 max-w-sm" data-section-copy>
             Cada implementación nace de un proceso real. Estas son las áreas donde más impacto
             generamos.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-stagger>
           {cases.map((c, i) => (
             <div
               key={c.area}
-              className="relative glass-container glass-blur-2xl glass-edge-glow border border-white/20 bg-black/40 before:absolute before:inset-0 before:rounded-3xl before:border-t before:border-white/30 before:pointer-events-none rounded-3xl p-6 shadow-2xl shadow-black/40 hover:scale-[1.02] transition-all duration-300 reveal group"
+              className="relative vlux-glass-card vlux-neon-border rounded-3xl p-6 shadow-xl shadow-black/30 surface-card-hover group"
+              data-stagger-item
             >
               <div className="flex items-center justify-between mb-5">
                 <LiquidGlassIcon icon={c.icon} tone={caseIconTones[i]} />

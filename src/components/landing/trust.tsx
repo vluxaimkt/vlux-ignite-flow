@@ -33,27 +33,39 @@ export function Trust() {
   const pillarIconTones = ["cyan", "mint", "positive", "cyan", "mint"] as const;
 
   return (
-    <section id="recursos" className="py-20 md:py-28 relative">
+    <section id="recursos" className="py-20 md:py-28 relative" data-section>
       <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="max-w-3xl reveal">
+        <div className="max-w-3xl">
           <span className="chip">Por qué VLUX</span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-display font-bold leading-tight glass-text-shimmer">
+          <h2 className="section-title" data-section-heading>
             Construido para operaciones reales, no para{" "}
             <span className="text-gradient-cyan">presentaciones bonitas.</span>
           </h2>
-          <p className="mt-4 text-white/70 md:text-lg">
-            No vendemos hype. Diseñamos sistemas que se usan todos los días y que generan resultados
-            medibles.
+          <p className="section-copy" data-section-copy>
+            Somos un partner de ejecución. Diseñamos sistemas que se adoptan en el día a día y se
+            miden por impacto operativo.
           </p>
+          <div className="mt-5 flex flex-wrap gap-2" data-stagger>
+            {[
+              "Arquitectura documentada",
+              "Implementación por etapas",
+              "Acompañamiento de adopción",
+            ].map((signal) => (
+              <span key={signal} className="stat-pill" data-stagger-item>
+                {signal}
+              </span>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-stagger>
           {pillars.map((p, i) => (
             <div
               key={p.title}
-              className={`relative glass-container glass-blur-2xl glass-edge-glow border border-white/20 bg-black/40 before:absolute before:inset-0 before:rounded-3xl before:border-t before:border-white/30 before:pointer-events-none p-6 rounded-3xl shadow-2xl shadow-black/40 hover:scale-[1.02] transition-all duration-300 reveal ${
+              className={`relative vlux-glass-card vlux-neon-border p-6 rounded-3xl shadow-xl shadow-black/30 surface-card-hover ${
                 i === 0 ? "lg:col-span-1" : ""
               }`}
+              data-stagger-item
             >
               <div className="flex items-center gap-3">
                 <LiquidGlassIcon icon={p.icon} tone={pillarIconTones[i]} size="sm" />
@@ -64,7 +76,10 @@ export function Trust() {
           ))}
 
           {/* Resultados posibles a medir card */}
-          <div className="relative glass-container glass-blur-2xl glass-edge-glow border border-white/20 bg-black/40 before:absolute before:inset-0 before:rounded-3xl before:border-t before:border-white/30 before:pointer-events-none p-6 rounded-3xl shadow-2xl shadow-[0_0_30px_rgba(0,255,255,0.1)] hover:scale-[1.02] transition-all duration-300 reveal bg-gradient-to-br from-[color:var(--cyan-glow)]/8 to-transparent">
+          <div
+            className="relative vlux-glass-card vlux-neon-border p-6 rounded-3xl shadow-xl shadow-black/30 bg-gradient-to-br from-[color:var(--cyan-glow)]/8 to-transparent surface-card-hover"
+            data-stagger-item
+          >
             <div className="text-[10px] font-mono uppercase tracking-wider text-[color:var(--cyan-glow)] mb-3">
               Resultados posibles a medir
             </div>

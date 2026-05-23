@@ -36,8 +36,8 @@ export const vluxAssets = {
     google: `${vluxBase}/integrations/google-neon-glass.png`,
     solidworks: `${vluxBase}/integrations/solidworks-neon-glass.png`,
     whatsapp: `${vluxBase}/integrations/whatsapp-neon-glass.png`,
+    globalShop: `${vluxBase}/integrations/globalshop-neon-glass.png`,
     api: `${vluxBase}/icons/api-neon-glass.png`,
-    database: `${vluxBase}/icons/network-neon-glass.png`,
-    globalShop: `${vluxBase}/icons/network-neon-glass.png`,
+    database: `${vluxBase}/integrations/database-neon-glass.png`,
   },
 } as const;

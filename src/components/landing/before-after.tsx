@@ -15,20 +15,34 @@ const after = [
 ];
 
 export function BeforeAfter() {
+  const cells = Array.from({ length: 32 }).map((_, i) => {
+    const lightness = 0.34 + ((i * 7) % 6) * 0.03;
+    const hue = 28 + ((i * 11) % 20);
+    const alpha = 0.38 + ((i * 5) % 4) * 0.12;
+    return `oklch(${lightness.toFixed(2)} 0.05 ${hue} / ${alpha.toFixed(2)})`;
+  });
+
   return (
-    <section className="py-20 md:py-28 relative">
+    <section className="py-20 md:py-28 relative" data-section>
       <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="max-w-2xl reveal">
+        <div className="max-w-2xl">
           <span className="chip">Transformación</span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-display font-bold leading-tight glass-text-shimmer">
+          <h2 className="section-title" data-section-heading>
             Antes vs. Después.
           </h2>
+          <p className="section-copy" data-section-copy>
+            Claridad operativa para dirección y ejecución diaria para el equipo. Menos fricción, más
+            control.
+          </p>
         </div>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-5 relative">
+        <div className="mt-12 grid md:grid-cols-2 gap-5 relative" data-stagger>
           <ArrowRight className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 text-[color:var(--cyan-glow)] glow-cyan-sm rounded-full bg-[color:var(--background)] p-2 z-10" />
 
-          <div className="relative glass-container glass-blur-2xl glass-edge-glow border border-white/20 bg-black/40 before:absolute before:inset-0 before:rounded-3xl before:border-t before:border-white/30 before:pointer-events-none rounded-3xl p-6 md:p-7 shadow-2xl shadow-black/40 hover:scale-[1.02] transition-all duration-300 reveal">
+          <div
+            className="relative vlux-glass-card vlux-neon-border rounded-3xl p-6 md:p-7 shadow-xl shadow-black/30 surface-card-hover"
+            data-stagger-item
+          >
             <div className="flex items-center justify-between mb-5">
               <div className="text-xs font-mono uppercase tracking-wider text-[color:var(--danger)]">
                 Antes
@@ -46,20 +60,16 @@ export function BeforeAfter() {
               ))}
             </ul>
             <div className="mt-6 h-24 rounded-lg bg-[color:var(--surface-3)]/50 border border-[color:var(--hairline)] grid grid-cols-8 gap-0.5 p-2 overflow-hidden">
-              {Array.from({ length: 32 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="rounded-sm"
-                  style={{
-                    background: `oklch(${0.3 + Math.random() * 0.2} 0.05 ${20 + Math.random() * 20})`,
-                    opacity: 0.4 + Math.random() * 0.5,
-                  }}
-                />
+              {cells.map((tone, i) => (
+                <div key={i} className="rounded-sm" style={{ background: tone }} />
               ))}
             </div>
           </div>
 
-          <div className="relative glass-container glass-blur-2xl glass-edge-glow border border-white/20 bg-black/40 before:absolute before:inset-0 before:rounded-3xl before:border-t before:border-white/30 before:pointer-events-none rounded-3xl p-6 md:p-7 shadow-2xl shadow-[0_0_30px_rgba(0,255,255,0.1)] hover:scale-[1.02] transition-all duration-300 reveal">
+          <div
+            className="relative vlux-glass-card vlux-neon-border rounded-3xl p-6 md:p-7 shadow-xl shadow-black/30 surface-card-hover"
+            data-stagger-item
+          >
             <div className="flex items-center justify-between mb-5">
               <div className="text-xs font-mono uppercase tracking-wider text-[color:var(--cyan-glow)]">
                 Después

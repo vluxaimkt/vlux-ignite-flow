@@ -11,12 +11,9 @@ import {
 
 export function DashboardMockup() {
   return (
-    <div className="relative animate-slide-up w-full max-w-full min-w-0">
+    <div className="relative w-full max-w-full min-w-0">
       {/* glow */}
-      <div
-        className="absolute -inset-4 bg-gradient-to-tr from-[color:var(--cyan-glow)]/30 via-[color:var(--mint)]/10 to-[color:var(--cyan-glow)]/20 blur-3xl rounded-[2rem] -z-10 animate-pulse"
-        style={{ animationDuration: "4s" }}
-      />
+      <div className="absolute -inset-4 bg-gradient-to-tr from-[color:var(--cyan-glow)]/26 via-[color:var(--mint)]/8 to-[color:var(--cyan-glow)]/16 blur-3xl rounded-[2rem] -z-10" />
 
       <div className="relative glass-container glass-blur-2xl glass-edge-glow border border-white/20 bg-black/40 before:absolute before:inset-0 before:rounded-3xl before:border-t before:border-white/30 before:pointer-events-none overflow-hidden liquid-neon rounded-3xl shadow-2xl shadow-black/40 w-full max-w-full min-w-0">
         {/* window chrome */}
@@ -134,9 +131,9 @@ export function DashboardMockup() {
       </div>
 
       {/* floating IA card */}
-      <div className="hidden md:flex absolute -bottom-6 -left-6 liquid-neon rounded-xl px-3 py-2.5 items-center gap-2.5 float z-20">
+      <div className="hidden md:flex absolute -bottom-6 -left-6 liquid-neon rounded-xl px-3 py-2.5 items-center gap-2.5 z-20">
         <span className="w-8 h-8 rounded-lg bg-black/50 border border-[color:var(--cyan-glow)] flex items-center justify-center shadow-[inset_0_0_10px_var(--cyan-glow)]">
-          <Bot className="w-4 h-4 text-[color:var(--primary-foreground)]" />
+          <Bot className="w-4 h-4 text-white" />
         </span>
         <div>
           <div className="text-[10px] text-white/60 uppercase tracking-wider">VLUX IA</div>

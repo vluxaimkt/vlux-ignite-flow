@@ -30,21 +30,25 @@ export function Process() {
   const stepIconTones = ["warn", "cyan", "mint", "positive", "cyan", "mint"] as const;
 
   return (
-    <section id="proceso" className="py-20 md:py-28 relative">
+    <section id="proceso" className="py-20 md:py-28 relative" data-section>
       <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="max-w-2xl reveal">
+        <div className="max-w-2xl">
           <span className="chip">Proceso</span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-display font-bold leading-tight glass-text-shimmer">
+          <h2 className="section-title" data-section-heading>
             De caos operativo a sistema, en <span className="text-gradient-cyan">6 pasos.</span>
           </h2>
+          <p className="section-copy" data-section-copy>
+            Metodología diseñada para avanzar rápido sin romper operación: diagnóstico, validación y
+            despliegue por etapas.
+          </p>
         </div>
 
-        <div className="mt-14 relative">
+        <div className="mt-14 relative" data-stagger>
           {/* desktop timeline */}
           <div className="hidden md:block absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[color:var(--cyan-glow)]/50 to-transparent" />
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-4 relative">
             {steps.map((s, i) => (
-              <div key={s.title} className="reveal" style={{ transitionDelay: `${i * 60}ms` }}>
+              <div key={s.title} data-stagger-item>
                 <div className="flex md:flex-col md:items-start gap-4 md:gap-3">
                   <div className="relative shrink-0">
                     <LiquidGlassIcon icon={s.icon} tone={stepIconTones[i]} size="xl" />

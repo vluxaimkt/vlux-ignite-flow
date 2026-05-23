@@ -111,27 +111,28 @@ const problems = [
 
 export function Problem() {
   return (
-    <section className="py-20 md:py-28 relative">
+    <section className="py-20 md:py-28 relative" data-section>
       <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="max-w-2xl reveal">
+        <div className="max-w-2xl">
           <span className="chip">El problema</span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-display font-bold leading-tight glass-text-shimmer">
-            Así se pierde control cuando la operación{" "}
+          <h2 className="section-title" data-section-heading>
+            Así se pierde margen cuando la operación{" "}
             <span className="text-[color:var(--danger)]">vive dispersa.</span>
           </h2>
-          <p className="mt-4 text-white/70">
-            La mayoría de las empresas no tienen un problema de personas: tienen un problema de
-            sistemas.
+          <p className="section-copy" data-section-copy>
+            No es un problema de actitud del equipo. Es un problema de procesos sin sistema:
+            información fragmentada, decisiones lentas y errores que se repiten.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-stagger>
           {problems.map((p, i) => (
             <div
               key={p.title}
-              className={`relative glass-container glass-blur-2xl glass-edge-glow border border-white/20 bg-black/40 before:absolute before:inset-0 before:rounded-3xl before:border-t before:border-white/30 before:pointer-events-none p-5 rounded-3xl shadow-2xl shadow-black/40 hover:scale-[1.02] transition-all duration-300 reveal ${
+              className={`relative vlux-glass-card vlux-neon-border p-5 rounded-3xl shadow-xl shadow-black/30 surface-card-hover ${
                 i === 0 ? "lg:col-span-2" : ""
               }`}
+              data-stagger-item
             >
               <div className="flex items-start gap-3 mb-4">
                 <LiquidGlassIcon icon={p.icon} tone="danger" size="sm" />
