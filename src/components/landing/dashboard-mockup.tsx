@@ -4,7 +4,6 @@ import {
   AlertTriangle,
   Zap,
   ArrowUpRight,
-  Bot,
   CheckCircle2,
   Clock,
 } from "lucide-react";
@@ -132,8 +131,14 @@ export function DashboardMockup() {
 
       {/* floating IA card */}
       <div className="hidden md:flex absolute -bottom-6 -left-6 liquid-neon rounded-xl px-3 py-2.5 items-center gap-2.5 z-20">
-        <span className="w-8 h-8 rounded-lg bg-black/50 border border-[color:var(--cyan-glow)] flex items-center justify-center shadow-[inset_0_0_10px_var(--cyan-glow)]">
-          <Bot className="w-4 h-4 text-white" />
+        <span className="w-8 h-8 rounded-lg bg-black/50 border border-[color:var(--cyan-glow)] flex items-center justify-center overflow-hidden shadow-[inset_0_0_10px_var(--cyan-glow)]">
+          <img
+            src="/assets/vlux/icons/vluxito.png"
+            alt="VLUX IA"
+            className="h-7 w-7 object-contain drop-shadow-[0_0_8px_var(--cyan-glow)]"
+            loading="eager"
+            decoding="async"
+          />
         </span>
         <div>
           <div className="text-[10px] text-white/60 uppercase tracking-wider">VLUX IA</div>
