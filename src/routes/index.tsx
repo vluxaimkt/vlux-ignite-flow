@@ -3,11 +3,9 @@ import { Header } from "@/components/landing/header";
 import { Hero } from "@/components/landing/hero";
 import { Problem } from "@/components/landing/problem";
 import { Solution } from "@/components/landing/solution";
-import { BeforeAfter } from "@/components/landing/before-after";
 import { UseCases } from "@/components/landing/use-cases";
 import { Demos } from "@/components/landing/demos";
 import { Process } from "@/components/landing/process";
-import { Trust } from "@/components/landing/trust";
 import { FinalCTA } from "@/components/landing/final-cta";
 import { Footer } from "@/components/landing/footer";
 import { StickyMobileCTA } from "@/components/landing/sticky-mobile-cta";
@@ -67,11 +65,9 @@ function Index() {
       <Hero />
       <Problem />
       <Solution />
-      <BeforeAfter />
+      <Process />
       <UseCases />
       <Demos />
-      <Process />
-      <Trust />
       <FinalCTA />
       <Footer />
       <StickyMobileCTA />

@@ -9,9 +9,8 @@ export const site = {
   bookingUrl: "#agendar",
   nav: [
     { label: "Servicios", href: "#servicios" },
-    { label: "Casos de uso", href: "#casos" },
     { label: "Proceso", href: "#proceso" },
+    { label: "Casos de uso", href: "#casos" },
     { label: "Demos", href: "#demos" },
-    { label: "Recursos", href: "#recursos" },
   ],
 };

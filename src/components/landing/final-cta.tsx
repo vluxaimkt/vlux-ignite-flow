@@ -20,7 +20,8 @@ export function FinalCTA() {
                 Diagnóstico sin costo
               </span>
               <h2 className="mt-5 text-3xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.05] text-balance">
-                ¿Listo para <span className="text-gradient-cyan">transformar tu empresa?</span>
+                ¿Listo para convertir tu operación en un{" "}
+                <span className="text-gradient-cyan">sistema inteligente?</span>
               </h2>
               <p className="mt-5 text-white/70 md:text-lg max-w-xl">
                 Agenda una sesión de 45 minutos y sal con prioridades claras: qué automatizar

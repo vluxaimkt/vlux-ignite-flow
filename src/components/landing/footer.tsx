@@ -29,7 +29,6 @@ export function Footer() {
       links: [
         { label: "Proceso", href: "#proceso" },
         { label: "Demos", href: "#demos" },
-        { label: "Recursos", href: "#recursos" },
         { label: "Contacto", href: "#agendar" },
       ],
     },
