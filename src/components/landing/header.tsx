@@ -45,7 +45,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-5 md:px-8 h-16 md:h-18 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2 group">
           <img
-            src={vluxAssets.logos.main}
+            src={vluxAssets.logos.navbar}
             alt="VLUX"
             className="vlux-logo-mark"
             loading="eager"

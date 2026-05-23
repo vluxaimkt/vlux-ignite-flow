@@ -3,6 +3,7 @@ const vluxBase = "/assets/vlux";
 export const vluxAssets = {
   logos: {
     main: `${vluxBase}/logos/vlux-logo-main.png`,
+    navbar: `${vluxBase}/logos/vlux-logo-transparent.png`,
     watermark: `${vluxBase}/logos/vlux-watermark.png`,
   },
   backgrounds: {
