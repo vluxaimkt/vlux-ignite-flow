@@ -100,7 +100,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="lg:scale-105" data-hero-visual>
+          <div data-hero-visual>
             <div className="relative min-h-[430px]">
               <div className="vlux-glow left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2" />
               <span className="absolute left-1/2 -top-4 z-20 -translate-x-1/2 sm:left-auto sm:-right-2 sm:-top-6 sm:translate-x-0">
@@ -127,17 +127,19 @@ export function Hero() {
           {capabilities.map((c) => (
             <div
               key={c.label}
-              className="vlux-glass-card vlux-neon-border p-4 md:p-5 group rounded-3xl shadow-xl shadow-black/30 surface-card-hover md:-translate-y-2"
+              className="group surface-card-hover md:-translate-y-2"
               data-stagger-item
             >
-              <VluxAssetIcon
-                src={c.asset}
-                alt={`${c.label} VLUX`}
-                size="md"
-                className="mb-4"
-              />
-              <div className="font-display font-semibold">{c.label}</div>
-              <div className="text-xs text-white/60 mt-1 leading-relaxed">{c.desc}</div>
+              <div className="vlux-glass-card vlux-neon-border rounded-3xl p-4 shadow-xl shadow-black/30 md:p-5">
+                <VluxAssetIcon
+                  src={c.asset}
+                  alt={`${c.label} VLUX`}
+                  size="md"
+                  className="mb-4"
+                />
+                <div className="font-display font-semibold">{c.label}</div>
+                <div className="mt-1 text-xs leading-relaxed text-white/60">{c.desc}</div>
+              </div>
             </div>
           ))}
         </div>

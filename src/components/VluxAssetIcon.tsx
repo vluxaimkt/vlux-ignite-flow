@@ -24,8 +24,8 @@ function handlePointerMove(event: PointerEvent<HTMLSpanElement>) {
   const rect = target.getBoundingClientRect();
   const x = ((event.clientX - rect.left) / rect.width) * 100;
   const y = ((event.clientY - rect.top) / rect.height) * 100;
-  const rotateY = ((x - 50) / 50) * 7;
-  const rotateX = ((50 - y) / 50) * 7;
+  const rotateY = ((x - 50) / 50) * 3.5;
+  const rotateX = ((50 - y) / 50) * 3.5;
 
   target.style.setProperty("--vlux-x", `${x.toFixed(1)}%`);
   target.style.setProperty("--vlux-y", `${y.toFixed(1)}%`);

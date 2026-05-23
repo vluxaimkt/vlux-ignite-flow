@@ -55,29 +55,31 @@ export function Demos() {
           {demos.map((d, i) => (
             <div
               key={d.title}
-              className={`vlux-glass-card vlux-neon-border overflow-hidden flex flex-col rounded-3xl shadow-xl shadow-black/30 surface-card-hover group ${
+              className={`group surface-card-hover ${
                 i === 0 ? "lg:col-span-2" : ""
               }`}
               data-stagger-item
             >
-              <div
-                className={`p-4 border-b border-[color:var(--cyan-glow)]/30 bg-black/40 backdrop-blur-sm relative overflow-hidden ${i === 0 ? "min-h-[200px]" : "min-h-[160px]"}`}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--cyan-glow)]/5 to-transparent z-0"></div>
-                <div className="relative z-10">{d.mock}</div>
-              </div>
-              <div className="p-5 flex-1 flex flex-col bg-black/20">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <VluxAssetIcon src={d.asset} alt={`${d.title} VLUX`} size="sm" />
-                  <h3 className="font-display font-semibold">{d.title}</h3>
-                </div>
-                <p className="text-sm text-white/70 flex-1">{d.desc}</p>
-                <a
-                  href={site.bookingUrl}
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[color:var(--cyan-glow)] hover:gap-2.5 transition-all"
+              <div className="vlux-glass-card vlux-neon-border flex h-full flex-col overflow-hidden rounded-3xl shadow-xl shadow-black/30">
+                <div
+                  className={`relative overflow-hidden border-b border-[color:var(--cyan-glow)]/30 bg-black/40 p-4 backdrop-blur-sm ${i === 0 ? "min-h-[200px]" : "min-h-[160px]"}`}
                 >
-                  Solicitar demo <ArrowRight className="w-4 h-4" />
-                </a>
+                  <div className="absolute inset-0 z-0 bg-gradient-to-br from-[color:var(--cyan-glow)]/5 to-transparent" />
+                  <div className="relative z-10">{d.mock}</div>
+                </div>
+                <div className="flex flex-1 flex-col bg-black/20 p-5">
+                  <div className="mb-2 flex items-center gap-2.5">
+                    <VluxAssetIcon src={d.asset} alt={`${d.title} VLUX`} size="sm" />
+                    <h3 className="font-display font-semibold">{d.title}</h3>
+                  </div>
+                  <p className="flex-1 text-sm text-white/70">{d.desc}</p>
+                  <a
+                    href={site.bookingUrl}
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[color:var(--cyan-glow)] transition-all hover:gap-2.5"
+                  >
+                    Solicitar demo <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
               </div>
             </div>
           ))}

@@ -27,17 +27,16 @@ export function useLandingAnimations(scopeRef: RefObject<HTMLElement | null>) {
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         gsap.set("main", { autoAlpha: 1 });
+        const snapPx = gsap.utils.snap(1);
 
         const heroTl = gsap.timeline({
           defaults: { ease: "power3.out" },
         });
 
         heroTl
-          .from("header", { y: -24, autoAlpha: 0, duration: 0.72 })
           .from(
             "[data-page-aurora]",
-            { autoAlpha: 0, scale: 1.06, duration: 1.1, ease: "power2.out" },
-            "<",
+            { autoAlpha: 0, duration: 1.1, ease: "power2.out" },
           )
           .from("[data-hero-chip]", { y: 20, scale: 0.95, autoAlpha: 0, duration: 0.55 }, "-=0.2")
           .from("[data-hero-title]", { y: 26, autoAlpha: 0, duration: 0.7 }, "-=0.28")
@@ -55,10 +54,8 @@ export function useLandingAnimations(scopeRef: RefObject<HTMLElement | null>) {
           .from(
             "[data-hero-visual]",
             {
-              y: 34,
+              y: 26,
               autoAlpha: 0,
-              scale: 0.95,
-              rotateZ: -1.4,
               duration: 0.92,
               ease: "power4.out",
             },
@@ -67,12 +64,13 @@ export function useLandingAnimations(scopeRef: RefObject<HTMLElement | null>) {
 
         gsap.utils.toArray<HTMLElement>("[data-hero-visual] .vlux-asset-icon").forEach((icon, i) => {
           gsap.to(icon, {
-            y: i % 2 === 0 ? -8 : 8,
-            x: i % 2 === 0 ? 3 : -3,
-            duration: 3 + i * 0.55,
+            y: i % 2 === 0 ? -4 : 4,
+            autoAlpha: i % 2 === 0 ? 1 : 0.96,
+            duration: 4.2 + i * 0.4,
             repeat: -1,
             yoyo: true,
             ease: "sine.inOut",
+            snap: { y: 1 },
           });
         });
 
@@ -150,10 +148,10 @@ export function useLandingAnimations(scopeRef: RefObject<HTMLElement | null>) {
           if (watermark) {
             gsap.fromTo(
               watermark,
-              { yPercent: -5, rotation: -8 },
+              { yPercent: -5, rotation: 0 },
               {
                 yPercent: 5,
-                rotation: -4,
+                rotation: 0,
                 ease: "none",
                 scrollTrigger: {
                   trigger: section,
@@ -173,9 +171,6 @@ export function useLandingAnimations(scopeRef: RefObject<HTMLElement | null>) {
           gsap.from(items, {
             y: 24,
             autoAlpha: 0,
-            scale: 0.96,
-            rotateX: 6,
-            transformOrigin: "50% 100%",
             duration: 0.66,
             stagger: 0.08,
             ease: "power3.out",
@@ -190,7 +185,6 @@ export function useLandingAnimations(scopeRef: RefObject<HTMLElement | null>) {
         gsap.from("[data-cta-panel]", {
           y: 30,
           autoAlpha: 0,
-          scale: 0.985,
           duration: 0.82,
           ease: "power3.out",
           scrollTrigger: {
@@ -218,8 +212,8 @@ export function useLandingAnimations(scopeRef: RefObject<HTMLElement | null>) {
             const relY = (event.clientY - rect.top) / rect.height - 0.5;
             const maxShift = el.classList.contains("vlux-premium-button") ? 4 : 6;
 
-            xTo(gsap.utils.clamp(-maxShift, maxShift, relX * maxShift * 2));
-            yTo(gsap.utils.clamp(-maxShift, maxShift, relY * maxShift * 2));
+            xTo(snapPx(gsap.utils.clamp(-maxShift, maxShift, relX * maxShift * 2)));
+            yTo(snapPx(gsap.utils.clamp(-maxShift, maxShift, relY * maxShift * 2)));
           };
 
           const handleLeave = () => {

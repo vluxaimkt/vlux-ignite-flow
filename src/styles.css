@@ -360,6 +360,7 @@
       border-color 240ms ease,
       box-shadow 240ms ease;
     animation: none;
+    will-change: transform;
   }
 
   .vlux-asset-icon::before,
@@ -401,7 +402,7 @@
       inset 0 1px 1px rgb(255 255 255 / 0.15),
       0 0 34px -14px color-mix(in oklch, var(--cyan-glow) 88%, transparent);
     transform: perspective(850px) rotateX(var(--vlux-rotate-x)) rotateY(var(--vlux-rotate-y))
-      translateY(-3px) scale(1.03);
+      translateY(-2px) translateZ(0);
   }
 
   .vlux-asset-icon-sm {
@@ -433,8 +434,9 @@
     width: 92%;
     height: 92%;
     object-fit: contain;
+    backface-visibility: hidden;
     filter: saturate(1.1) contrast(1.04)
-      drop-shadow(0 0 16px color-mix(in oklch, var(--cyan-glow) 58%, transparent));
+      drop-shadow(0 0 10px color-mix(in oklch, var(--cyan-glow) 44%, transparent));
   }
 
   .liquid-glass-icon {

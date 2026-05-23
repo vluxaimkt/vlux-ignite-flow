@@ -147,26 +147,28 @@ export function Solution() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="vlux-glass-card vlux-neon-border p-5 md:p-6 rounded-3xl shadow-xl shadow-black/30 surface-card-hover group"
+              className="group surface-card-hover"
               data-stagger-item
             >
-              <VluxAssetIcon
-                src={service.asset}
-                alt={`${service.title} VLUX`}
-                size="lg"
-                className="mb-5"
-              />
-              <h3 className="font-display font-semibold text-lg">{service.title}</h3>
-              <p className="text-sm text-white/70 mt-2 leading-relaxed">{service.desc}</p>
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                {service.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 text-white/60 border border-white/10"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              <div className="vlux-glass-card vlux-neon-border rounded-3xl p-5 shadow-xl shadow-black/30 md:p-6">
+                <VluxAssetIcon
+                  src={service.asset}
+                  alt={`${service.title} VLUX`}
+                  size="lg"
+                  className="mb-5"
+                />
+                <h3 className="font-display text-lg font-semibold">{service.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/70">{service.desc}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {service.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-mono text-white/60"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
@@ -193,16 +195,18 @@ export function Solution() {
             {integrations.map((integration) => (
               <div
                 key={integration.name}
-                className="vlux-glass-card vlux-neon-border p-4 rounded-2xl text-center group surface-card-hover"
+                className="group surface-card-hover"
                 data-stagger-item
               >
-                <VluxAssetIcon
-                  src={integration.asset}
-                  alt={`${integration.name} integrado con VLUX`}
-                  size="md"
-                  className="mx-auto"
-                />
-                <div className="mt-3 text-xs font-mono text-white/70">{integration.name}</div>
+                <div className="vlux-glass-card vlux-neon-border rounded-2xl p-4 text-center">
+                  <VluxAssetIcon
+                    src={integration.asset}
+                    alt={`${integration.name} integrado con VLUX`}
+                    size="md"
+                    className="mx-auto"
+                  />
+                  <div className="mt-3 text-xs font-mono text-white/70">{integration.name}</div>
+                </div>
               </div>
             ))}
           </div>
