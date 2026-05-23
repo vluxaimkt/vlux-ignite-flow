@@ -32,6 +32,13 @@ export const vluxAssets = {
     target: `${vluxBase}/icons/target-neon-glass.png`,
     users: `${vluxBase}/icons/users-neon-glass.png`,
   },
+  problem: {
+    flow: `${vluxBase}/problem/flujo-rojo.png`,
+    report: `${vluxBase}/problem/reporte-rojo.png`,
+    visibility: `${vluxBase}/problem/falta-visibilidad-rojo.png`,
+    tableAlert: `${vluxBase}/problem/tabla-alerta-rojo.png`,
+    whatsapp: `${vluxBase}/problem/whatsapp-rojo.png`,
+  },
   integrations: {
     excel: `${vluxBase}/integrations/excel-neon-glass.png`,
     google: `${vluxBase}/integrations/google-neon-glass.png`,

@@ -332,6 +332,7 @@
 
   .vlux-asset-icon {
     --vlux-icon-size: 4.25rem;
+    --vlux-asset-glow: var(--cyan-glow);
     --vlux-x: 50%;
     --vlux-y: 42%;
     --vlux-rotate-x: 0deg;
@@ -344,65 +345,39 @@
     height: var(--vlux-icon-size);
     flex: 0 0 var(--vlux-icon-size);
     place-items: center;
+    overflow: visible;
     border-radius: 1.35rem;
-    background:
-      radial-gradient(
-        circle at var(--vlux-x) var(--vlux-y),
-        rgb(255 255 255 / 0.18),
-        transparent 32%
-      ),
-      linear-gradient(145deg, rgb(255 255 255 / 0.06), rgb(0 0 0 / 0.24));
-    border: 1px solid color-mix(in oklch, var(--cyan-glow) 28%, transparent);
+    background: transparent;
+    border: 0;
     transform: perspective(850px) rotateX(var(--vlux-rotate-x)) rotateY(var(--vlux-rotate-y))
       translateZ(0);
     transition:
       transform 240ms ease,
-      border-color 240ms ease,
-      box-shadow 240ms ease;
+      filter 240ms ease;
     animation: none;
     will-change: transform;
   }
 
-  .vlux-asset-icon::before,
-  .vlux-asset-icon::after {
+  .vlux-asset-icon::before {
     content: "";
     position: absolute;
-    inset: 0;
-    border-radius: inherit;
+    inset: 17%;
+    z-index: -1;
+    border-radius: 999px;
+    background: color-mix(in oklch, var(--vlux-asset-glow) 48%, transparent);
+    filter: blur(18px);
+    opacity: 0.56;
     pointer-events: none;
   }
 
-  .vlux-asset-icon::before {
-    z-index: -1;
-    background:
-      radial-gradient(
-        circle at var(--vlux-x) var(--vlux-y),
-        color-mix(in oklch, var(--cyan-glow) 34%, transparent),
-        transparent 48%
-      ),
-      radial-gradient(
-        circle at 50% 100%,
-        color-mix(in oklch, var(--mint) 22%, transparent),
-        transparent 56%
-      );
-    filter: blur(8px);
-    opacity: 0.82;
-  }
-
   .vlux-asset-icon::after {
-    border-top: 1px solid rgb(255 255 255 / 0.2);
-    border-left: 1px solid rgb(255 255 255 / 0.08);
-    background: linear-gradient(135deg, rgb(255 255 255 / 0.08), transparent 42%);
+    content: none;
   }
 
   .vlux-asset-icon:hover,
   .group:hover .vlux-asset-icon {
-    border-color: color-mix(in oklch, var(--cyan-glow) 62%, white 6%);
-    box-shadow:
-      inset 0 1px 1px rgb(255 255 255 / 0.15),
-      0 0 34px -14px color-mix(in oklch, var(--cyan-glow) 88%, transparent);
     transform: perspective(850px) rotateX(var(--vlux-rotate-x)) rotateY(var(--vlux-rotate-y))
-      translateY(-2px) translateZ(0);
+      translateY(-2px) scale(1.035) translateZ(0);
   }
 
   .vlux-asset-icon-sm {
@@ -431,18 +406,53 @@
   .vlux-asset-icon-img {
     position: relative;
     z-index: 1;
-    width: 92%;
-    height: 92%;
+    width: 112%;
+    height: 112%;
     object-fit: contain;
     backface-visibility: hidden;
-    filter: saturate(1.1) contrast(1.04)
-      drop-shadow(0 0 10px color-mix(in oklch, var(--cyan-glow) 44%, transparent));
+    filter: saturate(1.08) contrast(1.03)
+      drop-shadow(0 0 12px color-mix(in oklch, var(--vlux-asset-glow) 56%, transparent))
+      drop-shadow(0 10px 18px rgb(0 0 0 / 0.36));
+  }
+
+  .problem-asset-icon {
+    --problem-icon-size: clamp(4.75rem, 7.2vw, 6.25rem);
+
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    width: var(--problem-icon-size);
+    height: var(--problem-icon-size);
+    flex: 0 0 var(--problem-icon-size);
+    place-items: center;
+    margin: -0.8rem 0 -0.5rem -0.7rem;
+  }
+
+  .problem-asset-icon::before {
+    content: "";
+    position: absolute;
+    inset: 20%;
+    z-index: -1;
+    border-radius: 999px;
+    background: color-mix(in oklch, var(--danger) 52%, transparent);
+    filter: blur(18px);
+    opacity: 0.58;
+  }
+
+  .problem-asset-icon-img {
+    width: 118%;
+    height: 118%;
+    object-fit: contain;
+    backface-visibility: hidden;
+    filter: saturate(1.08) contrast(1.03)
+      drop-shadow(0 0 12px color-mix(in oklch, var(--danger) 54%, transparent))
+      drop-shadow(0 10px 18px rgb(0 0 0 / 0.38));
   }
 
   .liquid-glass-icon {
     --liquid-icon-size: 2.75rem;
     --liquid-icon-radius: 1rem;
-    --liquid-icon-svg-size: 1.25rem;
+    --liquid-icon-svg-size: 1.65rem;
     --liquid-icon-accent: var(--cyan-glow);
     --liquid-icon-accent-2: var(--mint);
     --liquid-x: 50%;
@@ -458,87 +468,62 @@
     flex: 0 0 var(--liquid-icon-size);
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible;
     border-radius: var(--liquid-icon-radius);
     color: var(--liquid-icon-accent);
-    background:
-      radial-gradient(circle at 28% 18%, rgb(255 255 255 / 0.32), transparent 31%),
-      radial-gradient(
-        circle at 72% 78%,
-        color-mix(in oklch, var(--liquid-icon-accent-2) 26%, transparent),
-        transparent 42%
-      ),
-      linear-gradient(
-        145deg,
-        color-mix(in oklch, var(--liquid-icon-accent) 22%, transparent),
-        color-mix(in oklch, var(--liquid-icon-accent-2) 12%, transparent) 48%,
-        rgb(0 0 0 / 0.42)
-      );
-    border: 1px solid color-mix(in oklch, var(--liquid-icon-accent) 48%, white 8%);
-    backdrop-filter: blur(18px) saturate(1.35);
-    -webkit-backdrop-filter: blur(18px) saturate(1.35);
-    box-shadow:
-      inset 0 1px 1px rgb(255 255 255 / 0.3),
-      inset 0 -18px 32px color-mix(in oklch, var(--liquid-icon-accent) 13%, transparent),
-      0 10px 26px rgb(0 0 0 / 0.35),
-      0 0 28px -10px color-mix(in oklch, var(--liquid-icon-accent) 72%, transparent);
+    background: transparent;
+    border: 0;
+    box-shadow: none;
     transform: perspective(760px) rotateX(var(--liquid-rotate-x)) rotateY(var(--liquid-rotate-y))
       translateZ(0);
     animation: none;
     transition:
       transform 220ms ease,
-      border-color 220ms ease,
-      box-shadow 220ms ease,
       color 220ms ease;
   }
 
   .liquid-glass-icon-sm {
     --liquid-icon-size: 2.25rem;
     --liquid-icon-radius: 0.8rem;
-    --liquid-icon-svg-size: 1rem;
+    --liquid-icon-svg-size: 1.35rem;
   }
 
   .liquid-glass-icon-lg {
     --liquid-icon-size: 3rem;
     --liquid-icon-radius: 1.05rem;
-    --liquid-icon-svg-size: 1.4rem;
+    --liquid-icon-svg-size: 1.8rem;
   }
 
   .liquid-glass-icon-xl {
     --liquid-icon-size: 4rem;
     --liquid-icon-radius: 1.35rem;
-    --liquid-icon-svg-size: 1.85rem;
-  }
-
-  .liquid-glass-icon::before,
-  .liquid-glass-icon::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
+    --liquid-icon-svg-size: 2.45rem;
   }
 
   .liquid-glass-icon::before {
+    content: "";
+    position: absolute;
+    inset: 13%;
     z-index: -1;
+    border-radius: 999px;
     background:
-      linear-gradient(115deg, transparent 8%, rgb(255 255 255 / 0.22) 22%, transparent 39%),
       radial-gradient(
         circle at var(--liquid-x) var(--liquid-y),
-        color-mix(in oklch, var(--liquid-icon-accent) 28%, transparent),
-        transparent 44%
+        color-mix(in oklch, var(--liquid-icon-accent) 62%, transparent),
+        transparent 62%
       ),
-      radial-gradient(circle at 50% -12%, rgb(255 255 255 / 0.28), transparent 43%);
-    mix-blend-mode: screen;
-    opacity: 0.82;
-    animation: none;
+      radial-gradient(
+        circle at 64% 72%,
+        color-mix(in oklch, var(--liquid-icon-accent-2) 32%, transparent),
+        transparent 62%
+      );
+    filter: blur(16px);
+    opacity: 0.62;
+    pointer-events: none;
   }
 
   .liquid-glass-icon::after {
-    inset: 1px;
-    border-top: 1px solid rgb(255 255 255 / 0.42);
-    border-left: 1px solid rgb(255 255 255 / 0.14);
-    background: linear-gradient(135deg, rgb(255 255 255 / 0.16), transparent 45%);
+    content: none;
   }
 
   .liquid-glass-icon-svg {
@@ -546,18 +531,13 @@
     z-index: 1;
     width: var(--liquid-icon-svg-size);
     height: var(--liquid-icon-svg-size);
-    filter: drop-shadow(0 0 10px color-mix(in oklch, var(--liquid-icon-accent) 68%, transparent));
+    filter: drop-shadow(0 0 12px color-mix(in oklch, var(--liquid-icon-accent) 72%, transparent))
+      drop-shadow(0 8px 14px rgb(0 0 0 / 0.36));
   }
 
   .group:hover .liquid-glass-icon,
   .liquid-glass-icon:hover {
     color: color-mix(in oklch, var(--liquid-icon-accent) 78%, white);
-    border-color: color-mix(in oklch, var(--liquid-icon-accent) 82%, white 8%);
-    box-shadow:
-      inset 0 1px 1px rgb(255 255 255 / 0.36),
-      inset 0 -18px 36px color-mix(in oklch, var(--liquid-icon-accent) 22%, transparent),
-      0 14px 32px rgb(0 0 0 / 0.42),
-      0 0 34px -8px color-mix(in oklch, var(--liquid-icon-accent) 84%, transparent);
     transform: perspective(760px) rotateX(var(--liquid-rotate-x)) rotateY(var(--liquid-rotate-y))
       translateY(-2px) scale(1.04);
   }

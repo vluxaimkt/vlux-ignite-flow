@@ -2,11 +2,13 @@ import type { CSSProperties, PointerEvent } from "react";
 import { cn } from "@/lib/utils";
 
 type VluxAssetIconSize = "sm" | "md" | "lg" | "xl" | "hero";
+type VluxAssetIconTone = "cyan" | "mint" | "positive" | "warn" | "danger";
 
 interface VluxAssetIconProps {
   src: string;
   alt: string;
   size?: VluxAssetIconSize;
+  tone?: VluxAssetIconTone;
   className?: string;
   imgClassName?: string;
   loading?: "eager" | "lazy";
@@ -17,7 +19,34 @@ type LiquidAssetVars = CSSProperties & {
   "--vlux-y"?: string;
   "--vlux-rotate-x"?: string;
   "--vlux-rotate-y"?: string;
+  "--vlux-asset-glow"?: string;
 };
+
+const assetToneVars: Record<VluxAssetIconTone, string> = {
+  cyan: "var(--cyan-glow)",
+  mint: "var(--mint)",
+  positive: "var(--positive)",
+  warn: "var(--warn)",
+  danger: "var(--danger)",
+};
+
+function inferAssetTone(src: string): VluxAssetIconTone {
+  const normalizedSrc = src.toLowerCase();
+
+  if (normalizedSrc.includes("whatsapp") || normalizedSrc.includes("excel")) {
+    return "positive";
+  }
+
+  if (normalizedSrc.includes("solidworks") || normalizedSrc.includes("target")) {
+    return "warn";
+  }
+
+  if (normalizedSrc.includes("globalshop") || normalizedSrc.includes("database")) {
+    return "mint";
+  }
+
+  return "cyan";
+}
 
 function handlePointerMove(event: PointerEvent<HTMLSpanElement>) {
   const target = event.currentTarget;
@@ -46,6 +75,7 @@ export function VluxAssetIcon({
   src,
   alt,
   size = "md",
+  tone,
   className,
   imgClassName,
   loading = "lazy",
@@ -55,6 +85,7 @@ export function VluxAssetIcon({
     "--vlux-y": "42%",
     "--vlux-rotate-x": "0deg",
     "--vlux-rotate-y": "0deg",
+    "--vlux-asset-glow": assetToneVars[tone ?? inferAssetTone(src)],
   };
 
   return (

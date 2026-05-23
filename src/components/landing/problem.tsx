@@ -1,9 +1,8 @@
-import { FileSpreadsheet, MessageCircle, FileText, Network, EyeOff } from "lucide-react";
-import { LiquidGlassIcon } from "@/components/LiquidGlassIcon";
+import { vluxAssets } from "@/config/vluxAssets";
 
 const problems = [
   {
-    icon: FileSpreadsheet,
+    asset: vluxAssets.problem.tableAlert,
     title: "Excel desordenado",
     desc: "Versiones duplicadas, fórmulas rotas, archivos que nadie sabe cuál es el bueno.",
     visual: (
@@ -22,7 +21,7 @@ const problems = [
     ),
   },
   {
-    icon: MessageCircle,
+    asset: vluxAssets.problem.whatsapp,
     title: "WhatsApp como sistema",
     desc: "Pedidos, autorizaciones y reportes perdidos entre cientos de mensajes.",
     visual: (
@@ -46,7 +45,7 @@ const problems = [
     ),
   },
   {
-    icon: FileText,
+    asset: vluxAssets.problem.report,
     title: "Reportes manuales",
     desc: "Horas armando reportes que llegan tarde y con errores humanos.",
     visual: (
@@ -64,7 +63,7 @@ const problems = [
     ),
   },
   {
-    icon: Network,
+    asset: vluxAssets.problem.flow,
     title: "Sistemas desconectados",
     desc: "ERP, CRM, hojas de cálculo y correos que no se hablan entre sí.",
     visual: (
@@ -96,7 +95,7 @@ const problems = [
     ),
   },
   {
-    icon: EyeOff,
+    asset: vluxAssets.problem.visibility,
     title: "Falta de visibilidad",
     desc: "Decisiones a ciegas porque los datos no están a la mano cuando se necesitan.",
     visual: (
@@ -134,8 +133,16 @@ export function Problem() {
               }`}
               data-stagger-item
             >
-              <div className="flex items-start gap-3 mb-4">
-                <LiquidGlassIcon icon={p.icon} tone="danger" size="sm" />
+              <div className="flex items-center gap-4 mb-5">
+                <span className="problem-asset-icon" aria-hidden="true">
+                  <img
+                    src={p.asset}
+                    alt=""
+                    className="problem-asset-icon-img"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
                 <div>
                   <div className="font-display font-semibold">{p.title}</div>
                   <div className="text-xs text-white/60 mt-1 leading-relaxed">{p.desc}</div>

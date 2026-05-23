@@ -22,7 +22,7 @@ export function SectionSidebar() {
 
   return (
     <aside
-      className={`hidden xl:block fixed right-5 top-1/2 -translate-y-1/2 z-40 transition-all duration-500 ${
+      className={`hidden min-[1760px]:block fixed right-5 top-1/2 -translate-y-1/2 z-40 transition-all duration-500 ${
         visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6 pointer-events-none"
       }`}
       aria-hidden={!visible}
