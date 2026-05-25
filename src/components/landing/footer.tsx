@@ -48,13 +48,15 @@ export function Footer() {
         <div className="grid lg:grid-cols-[1.4fr_repeat(3,1fr)_1.2fr] gap-10">
           <div>
             <div className="flex items-center gap-2">
-              <img
-                src={vluxAssets.logos.main}
-                alt="VLUX"
-                className="vlux-logo-mark"
-                loading="lazy"
-                decoding="async"
-              />
+              <span className="footer-logo-mark" aria-hidden="true">
+                <img
+                  src={vluxAssets.logos.footerMark}
+                  alt=""
+                  className="footer-logo-mark-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
               <span className="font-display font-bold text-xl">{site.brand}</span>
             </div>
             <p className="mt-4 text-sm text-white/70 max-w-xs leading-relaxed">

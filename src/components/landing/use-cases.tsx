@@ -1,42 +1,45 @@
-import { Factory, Briefcase, TrendingUp, Headphones, Calculator, Users } from "lucide-react";
-import { LiquidGlassIcon } from "@/components/LiquidGlassIcon";
+import { vluxAssets } from "@/config/vluxAssets";
 
 const cases = [
   {
-    icon: Factory,
+    asset: vluxAssets.useCases.manufacturing,
+    tone: "warn",
     area: "Manufactura",
     items: ["Control de producción en piso", "Trazabilidad de órdenes", "Checador 2.0 por área"],
   },
   {
-    icon: Briefcase,
+    asset: vluxAssets.useCases.administration,
+    tone: "cyan",
     area: "Administración",
     items: ["Facturación automatizada", "Aprobaciones digitales", "Expedientes centralizados"],
   },
   {
-    icon: TrendingUp,
+    asset: vluxAssets.useCases.finance,
+    tone: "positive",
     area: "Ventas",
     items: ["CRM conectado a WhatsApp", "Cotizaciones automáticas", "Dashboard de pipeline"],
   },
   {
-    icon: Headphones,
+    asset: vluxAssets.useCases.customerSupport,
+    tone: "positive",
     area: "Atención al cliente",
     items: ["IA que responde 24/7", "Tickets desde WhatsApp", "Histórico unificado"],
   },
   {
-    icon: Calculator,
+    asset: vluxAssets.useCases.engineeringCosts,
+    tone: "cyan",
     area: "Ingeniería y costos",
     items: ["Cotizador inteligente", "Costeo por proyecto", "Comparativo real vs. plan"],
   },
   {
-    icon: Users,
+    asset: vluxAssets.useCases.humanResources,
+    tone: "positive",
     area: "Recursos Humanos",
     items: ["Checador con geolocalización", "Vacaciones y permisos", "Indicadores por colaborador"],
   },
 ];
 
 export function UseCases() {
-  const caseIconTones = ["warn", "cyan", "positive", "mint", "cyan", "mint"] as const;
-
   return (
     <section id="casos" className="py-20 md:py-28 relative" data-section>
       <div className="max-w-7xl mx-auto px-5 md:px-8">
@@ -61,7 +64,15 @@ export function UseCases() {
               data-stagger-item
             >
               <div className="flex items-center justify-between mb-5">
-                <LiquidGlassIcon icon={c.icon} tone={caseIconTones[i]} />
+                <span className={`use-case-asset-icon use-case-asset-icon-${c.tone}`}>
+                  <img
+                    src={c.asset}
+                    alt={`${c.area} VLUX`}
+                    className="use-case-asset-icon-img"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
                 <span className="text-[10px] font-mono text-white/60 uppercase tracking-wider">
                   Área
                 </span>

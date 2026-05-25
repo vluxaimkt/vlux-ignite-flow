@@ -9,7 +9,6 @@ import { Process } from "@/components/landing/process";
 import { FinalCTA } from "@/components/landing/final-cta";
 import { Footer } from "@/components/landing/footer";
 import { StickyMobileCTA } from "@/components/landing/sticky-mobile-cta";
-import { SectionSidebar } from "@/components/landing/section-sidebar";
 import { useLandingAnimations } from "@/hooks/use-landing-animations";
 import { useRef } from "react";
 
@@ -61,7 +60,6 @@ function Index() {
       />
 
       <Header />
-      <SectionSidebar />
       <Hero />
       <Problem />
       <Solution />

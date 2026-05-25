@@ -1,32 +1,16 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { site } from "@/config/site";
 import { vluxAssets } from "@/config/vluxAssets";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [visible, setVisible] = useState(true);
   const [open, setOpen] = useState(false);
-  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const onScroll = () => {
       const currentY = window.scrollY;
       setScrolled(currentY > 8);
-
-      // Always show navbar at the very top
-      if (currentY < 60) {
-        setVisible(true);
-      } else if (currentY < lastScrollY.current) {
-        // Scrolling UP → show
-        setVisible(true);
-      } else if (currentY > lastScrollY.current + 5) {
-        // Scrolling DOWN (with 5px threshold) → hide
-        setVisible(false);
-        setOpen(false);
-      }
-
-      lastScrollY.current = currentY;
     };
 
     onScroll();
@@ -36,11 +20,11 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-4 inset-x-4 max-w-7xl mx-auto rounded-3xl z-50 transition-all duration-300 ${
+      className={`vlux-site-header max-w-7xl mx-auto rounded-3xl transition-all duration-300 ${
         scrolled
           ? "vlux-glass-card vlux-neon-border shadow-2xl shadow-black/40"
           : "border border-[color:var(--cyan-glow)]/10 bg-black/10 backdrop-blur-md"
-      } ${visible ? "translate-y-0 opacity-100" : "-translate-y-[calc(100%+2rem)] opacity-0"}`}
+      }`}
     >
       <div className="max-w-7xl mx-auto px-5 md:px-8 h-16 md:h-18 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2 group">

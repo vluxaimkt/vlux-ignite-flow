@@ -4,6 +4,7 @@ export const vluxAssets = {
   logos: {
     main: `${vluxBase}/logos/vlux-logo-main.png`,
     navbar: `${vluxBase}/logos/vlux-logo-transparent.png`,
+    footerMark: `${vluxBase}/logos/vlux-footer-mark.png`,
     watermark: `${vluxBase}/logos/vlux-watermark.png`,
   },
   backgrounds: {
@@ -38,6 +39,22 @@ export const vluxAssets = {
     visibility: `${vluxBase}/problem/falta-visibilidad-rojo.png`,
     tableAlert: `${vluxBase}/problem/tabla-alerta-rojo.png`,
     whatsapp: `${vluxBase}/problem/whatsapp-rojo.png`,
+  },
+  process: {
+    step01: `${vluxBase}/process/step-01.png`,
+    step02: `${vluxBase}/process/step-02.png`,
+    step03: `${vluxBase}/process/step-03.png`,
+    step04: `${vluxBase}/process/step-04.png`,
+    step05: `${vluxBase}/process/step-05.png`,
+    step06: `${vluxBase}/process/step-06.png`,
+  },
+  useCases: {
+    manufacturing: `${vluxBase}/use-cases/manufactura.png`,
+    administration: `${vluxBase}/use-cases/administracion.png`,
+    finance: `${vluxBase}/use-cases/finanzas.png`,
+    customerSupport: `${vluxBase}/use-cases/atencion-cliente.png`,
+    engineeringCosts: `${vluxBase}/use-cases/ingenieria-costos.png`,
+    humanResources: `${vluxBase}/use-cases/recursos-humanos.png`,
   },
   integrations: {
     excel: `${vluxBase}/integrations/excel-neon-glass.png`,
