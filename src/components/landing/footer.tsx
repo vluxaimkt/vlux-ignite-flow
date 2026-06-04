@@ -36,14 +36,6 @@ export function Footer() {
 
   return (
     <footer className="relative border-t border-[color:var(--hairline)] mt-10 overflow-hidden">
-      <img
-        src={vluxAssets.backgrounds.watermark}
-        alt=""
-        aria-hidden="true"
-        className="vlux-watermark left-[-1.5rem] top-8 w-[24rem]"
-        loading="lazy"
-        decoding="async"
-      />
       <div className="max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-20">
         <div className="grid lg:grid-cols-[1.4fr_repeat(3,1fr)_1.2fr] gap-10">
           <div>
