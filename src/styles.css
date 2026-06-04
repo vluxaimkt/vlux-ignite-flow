@@ -587,6 +587,16 @@
       drop-shadow(0 6px 12px rgb(0 0 0 / 0.36));
   }
 
+  .final-cta-button-icon {
+    width: 2rem;
+    height: 2rem;
+    flex: 0 0 2rem;
+    margin: -0.35rem 0.5rem -0.35rem -0.18rem;
+    object-fit: contain;
+    filter: saturate(1.06) contrast(1.04)
+      drop-shadow(0 0 8px color-mix(in oklch, var(--cyan-glow) 70%, transparent));
+  }
+
   .liquid-glass-icon {
     --liquid-icon-size: 2.75rem;
     --liquid-icon-radius: 1rem;

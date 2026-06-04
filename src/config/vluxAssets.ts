@@ -20,6 +20,7 @@ export const vluxAssets = {
     nuestrosServicios: `${vluxBase}/buttons/button-nuestros-servicios.png`,
     casosDeExito: `${vluxBase}/buttons/button-casos-de-exito.png`,
     conoceMas: `${vluxBase}/buttons/button-conoce-mas.png`,
+    agendarDiagnosticoIcon: `${vluxBase}/buttons/icon-agendar-diagnostico.png`,
   },
   icons: {
     aiBrain: `${vluxBase}/icons/ai-brain-neon-glass.png`,

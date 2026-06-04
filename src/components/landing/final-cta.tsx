@@ -1,4 +1,3 @@
-import { Calendar } from "lucide-react";
 import { site } from "@/config/site";
 import { vluxAssets } from "@/config/vluxAssets";
 
@@ -29,7 +28,14 @@ export function FinalCTA() {
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <a href={site.bookingUrl} className="vlux-premium-button w-full sm:w-auto">
-                  <Calendar className="w-4 h-4 mr-2" />
+                  <img
+                    src={vluxAssets.buttons.agendarDiagnosticoIcon}
+                    alt=""
+                    aria-hidden="true"
+                    className="final-cta-button-icon"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   Agendar diagnóstico
                 </a>
                 <a
