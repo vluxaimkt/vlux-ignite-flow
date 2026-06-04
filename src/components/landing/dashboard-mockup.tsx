@@ -12,20 +12,20 @@ export function DashboardMockup() {
   return (
     <div className="relative w-full max-w-full min-w-0">
       {/* glow */}
-      <div className="absolute -inset-4 bg-gradient-to-tr from-[color:var(--cyan-glow)]/26 via-[color:var(--mint)]/8 to-[color:var(--cyan-glow)]/16 blur-3xl rounded-[2rem] -z-10" />
+      <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-to-tr from-white/6 via-transparent to-[color:var(--cyan-glow)]/6 blur-3xl" />
 
-      <div className="relative glass-container glass-blur-2xl glass-edge-glow border border-white/20 bg-black/40 before:absolute before:inset-0 before:rounded-3xl before:border-t before:border-white/30 before:pointer-events-none overflow-hidden liquid-neon rounded-3xl shadow-2xl shadow-black/40 w-full max-w-full min-w-0">
+      <div className="liquid-neon relative w-full max-w-full min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-2xl shadow-black/30">
         {/* window chrome */}
-        <div className="flex items-center justify-between gap-3 px-4 py-3 border-b border-[color:var(--cyan-glow)]/30 bg-black/40 backdrop-blur-md min-w-0">
+        <div className="flex min-w-0 items-center justify-between gap-3 border-b border-white/10 bg-black/35 px-4 py-3 backdrop-blur-md">
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-[color:var(--danger)]/70" />
             <span className="w-2.5 h-2.5 rounded-full bg-[color:var(--warn)]/70" />
             <span className="w-2.5 h-2.5 rounded-full bg-[color:var(--positive)]/70" />
           </div>
-          <div className="text-xs font-mono text-white/60 truncate">vlux.app / dashboard</div>
+          <div className="text-xs font-mono text-white/60 truncate">vlux.app / operación</div>
           <div className="hidden sm:flex items-center gap-1.5 text-xs text-[color:var(--positive)]">
             <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--positive)] pulse-dot" />
-            En vivo
+            Demo
           </div>
         </div>
 
@@ -38,7 +38,7 @@ export function DashboardMockup() {
           ].map((k) => (
             <div
               key={k.label}
-              className="col-span-12 sm:col-span-4 min-w-0 rounded-xl bg-black/30 border border-[color:var(--cyan-glow)]/40 p-3 shadow-[inset_0_1px_2px_rgba(255,255,255,0.1),inset_0_0_10px_color-mix(in_oklch,var(--cyan-glow)_10%,transparent)] hover:border-[color:var(--cyan-glow)]/80 transition-colors"
+              className="col-span-12 min-w-0 rounded-xl border border-white/10 bg-black/30 p-3 transition-colors hover:border-white/20 sm:col-span-4"
             >
               <div className="flex items-center justify-between gap-2 text-white/60 text-[10px] uppercase tracking-wider">
                 {k.label}
@@ -50,8 +50,8 @@ export function DashboardMockup() {
           ))}
 
           {/* Chart */}
-          <div className="col-span-12 md:col-span-7 rounded-xl bg-black/30 border border-[color:var(--cyan-glow)]/40 p-3 shadow-[inset_0_0_10px_color-mix(in_oklch,var(--cyan-glow)_10%,transparent)] relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[color:var(--cyan-glow)]/10 to-transparent -translate-x-full group-hover:animate-[liquid-shine_2s_ease-in-out]" />
+          <div className="group relative col-span-12 overflow-hidden rounded-xl border border-white/10 bg-black/30 p-3 md:col-span-7">
+            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.04] to-transparent group-hover:animate-[liquid-shine_2s_ease-in-out]" />
             <div className="flex items-center justify-between mb-2">
               <div className="text-xs font-medium">Ventas · últimos 14 días</div>
               <div className="text-[10px] text-white/60 font-mono">+22% MoM</div>
@@ -60,7 +60,7 @@ export function DashboardMockup() {
           </div>
 
           {/* Orders by status */}
-          <div className="col-span-12 md:col-span-5 rounded-xl bg-black/30 border border-[color:var(--cyan-glow)]/40 p-3 shadow-[inset_0_0_10px_color-mix(in_oklch,var(--cyan-glow)_10%,transparent)]">
+          <div className="col-span-12 rounded-xl border border-white/10 bg-black/30 p-3 md:col-span-5">
             <div className="text-xs font-medium mb-2">Órdenes por estatus</div>
             <div className="space-y-2">
               {[
@@ -89,7 +89,7 @@ export function DashboardMockup() {
           </div>
 
           {/* Automation feed */}
-          <div className="col-span-12 md:col-span-7 rounded-xl bg-black/30 border border-[color:var(--cyan-glow)]/40 p-3 shadow-[inset_0_0_10px_color-mix(in_oklch,var(--cyan-glow)_10%,transparent)]">
+          <div className="col-span-12 rounded-xl border border-white/10 bg-black/30 p-3 md:col-span-7">
             <div className="flex items-center justify-between mb-2">
               <div className="text-xs font-medium flex items-center gap-1.5">
                 <Zap className="w-3.5 h-3.5 text-[color:var(--cyan-glow)]" />
@@ -113,36 +113,19 @@ export function DashboardMockup() {
           </div>
 
           {/* Alerts */}
-          <div className="col-span-12 md:col-span-5 rounded-xl bg-gradient-to-br from-[color:var(--warn)]/20 to-transparent border border-[color:var(--warn)]/50 p-3 shadow-[inset_0_0_15px_color-mix(in_oklch,var(--warn)_20%,transparent)]">
+          <div className="col-span-12 rounded-xl border border-[color:var(--warn)]/25 bg-[color:var(--warn)]/[0.06] p-3 md:col-span-5">
             <div className="flex items-center gap-1.5 text-xs font-medium mb-2 text-[color:var(--warn)]">
               <AlertTriangle className="w-3.5 h-3.5" />
-              Alertas inteligentes
+              Alertas de operación
             </div>
             <div className="space-y-2 text-[11px]">
               <div className="text-[color:var(--foreground)]">3 órdenes con retraso &gt; 48h</div>
-              <div className="text-white/70">Predicción IA: cuello de botella en empaque</div>
+              <div className="text-white/70">Revisar empaque antes del corte de envío</div>
               <button className="mt-1 text-[10px] inline-flex items-center gap-1 text-[color:var(--cyan-glow)] hover:underline">
                 Ver detalle <ArrowUpRight className="w-3 h-3" />
               </button>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* floating IA card */}
-      <div className="hidden md:flex absolute -bottom-6 -left-6 liquid-neon rounded-xl px-3 py-2.5 items-center gap-2.5 z-20">
-        <span className="w-8 h-8 rounded-lg bg-black/50 border border-[color:var(--cyan-glow)] flex items-center justify-center overflow-hidden shadow-[inset_0_0_10px_var(--cyan-glow)]">
-          <img
-            src="/assets/vlux/icons/vluxito.png"
-            alt="VLUX IA"
-            className="h-7 w-7 object-contain drop-shadow-[0_0_8px_var(--cyan-glow)]"
-            loading="eager"
-            decoding="async"
-          />
-        </span>
-        <div>
-          <div className="text-[10px] text-white/60 uppercase tracking-wider">VLUX IA</div>
-          <div className="text-xs font-medium">Resumen ejecutivo listo</div>
         </div>
       </div>
     </div>

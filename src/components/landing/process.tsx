@@ -4,82 +4,67 @@ const steps = [
   {
     asset: vluxAssets.process.step01,
     tone: "warn",
-    title: "Diagnóstico",
-    desc: "Entendemos tu operación real, no la del organigrama.",
+    title: "Diagnóstico operativo",
+    desc: "Revisamos dónde se pierde tiempo, control o información.",
   },
   {
     asset: vluxAssets.process.step02,
     tone: "cyan",
-    title: "Mapeo",
-    desc: "Documentamos procesos, datos, herramientas y dolores.",
-  },
-  {
-    asset: vluxAssets.process.step03,
-    tone: "positive",
-    title: "Prototipo",
-    desc: "Construimos una versión funcional para validar contigo.",
+    title: "Mapa del primer módulo",
+    desc: "Definimos alcance, pantallas, datos y responsables.",
   },
   {
     asset: vluxAssets.process.step04,
     tone: "positive",
-    title: "Implementación",
-    desc: "Lanzamos en producción con datos reales y por etapas.",
-  },
-  {
-    asset: vluxAssets.process.step05,
-    tone: "cyan",
-    title: "Capacitación",
-    desc: "Tu equipo lo adopta porque fue diseñado para ellos.",
+    title: "Implementación por etapas",
+    desc: "Lanzamos una versión funcional sin detener la operación.",
   },
   {
     asset: vluxAssets.process.step06,
     tone: "positive",
-    title: "Mejora continua",
-    desc: "Iteramos con métricas reales del sistema.",
+    title: "Medición y mejora",
+    desc: "Ajustamos con uso real, no con supuestos.",
   },
 ];
 
 export function Process() {
   return (
-    <section id="proceso" className="py-20 md:py-28 relative" data-section>
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
+    <section id="proceso" className="relative py-16 md:py-24" data-section>
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="max-w-2xl">
           <span className="chip">Proceso</span>
           <h2 className="section-title" data-section-heading>
-            De caos operativo a sistema, en <span className="text-gradient-cyan">6 pasos.</span>
+            Del proceso manual al primer módulo funcionando.
           </h2>
           <p className="section-copy" data-section-copy>
-            Metodología diseñada para avanzar rápido sin romper operación: diagnóstico, validación y
-            despliegue por etapas.
+            El objetivo es avanzar con foco: resolver un cuello de botella, validar adopción y
+            crecer desde ahí.
           </p>
         </div>
 
-        <div className="mt-14 relative" data-stagger>
-          {/* desktop timeline */}
-          <div className="hidden md:block absolute top-[2.55rem] left-0 right-0 h-px bg-gradient-to-r from-transparent via-[color:var(--cyan-glow)]/50 to-transparent" />
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-7 md:gap-4 relative">
-            {steps.map((s, i) => (
-              <div key={s.title} data-stagger-item>
-                <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-4">
-                  <div className="relative shrink-0">
-                    <span className={`process-asset-icon process-asset-icon-${s.tone}`}>
-                      <img
-                        src={s.asset}
-                        alt={`Paso ${i + 1}: ${s.title}`}
-                        className="process-asset-icon-img"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </span>
-                  </div>
+        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-4" data-stagger>
+          {steps.map((step, index) => (
+            <div key={step.title} className="relative" data-stagger-item>
+              <div className="vlux-glass-card h-full rounded-2xl p-5">
+                <div className="flex items-start gap-4 md:block">
+                  <span className={`process-asset-icon process-asset-icon-${step.tone}`}>
+                    <img
+                      src={step.asset}
+                      alt={`Paso ${index + 1}: ${step.title}`}
+                      className="process-asset-icon-img"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </span>
                   <div>
-                    <h3 className="font-display font-semibold">{s.title}</h3>
-                    <p className="text-xs text-white/60 mt-1 leading-relaxed">{s.desc}</p>
+                    <div className="mb-2 text-xs font-mono text-white/45">0{index + 1}</div>
+                    <h3 className="font-display text-lg font-semibold">{step.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/70">{step.desc}</p>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

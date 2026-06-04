@@ -1,212 +1,112 @@
-import { ArrowRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { VluxAssetIcon } from "@/components/VluxAssetIcon";
 import { vluxAssets } from "@/config/vluxAssets";
 
-const services = [
-  {
-    asset: vluxAssets.icons.processAutomation,
-    title: "Automatización de procesos",
-    desc: "Convertimos pasos manuales en flujos con reglas, alertas, aprobaciones y notificaciones.",
-    tags: ["Flujos", "Triggers", "Operación"],
-  },
-  {
-    asset: vluxAssets.icons.dashboardBars,
-    title: "Dashboards empresariales",
-    desc: "KPIs en tiempo real para dirección, ventas, producción y administración.",
-    tags: ["KPIs", "Roles", "Tiempo real"],
-  },
-  {
-    asset: vluxAssets.icons.aiBrain,
-    title: "IA para atención al cliente",
-    desc: "Asistentes que responden, clasifican solicitudes, resumen conversaciones y crean tickets.",
-    tags: ["WhatsApp", "RAG", "Agentes"],
-  },
+const modules = [
   {
     asset: vluxAssets.integrations.excel,
-    title: "Excel a software",
-    desc: "Migramos hojas críticas a apps web con permisos, auditoría y datos confiables.",
-    tags: ["Excel", "Web app", "Control"],
+    title: "Excel a sistema operativo",
+    problem: "Cuando una hoja ya controla inventario, costos, pedidos o asistencia.",
+    delivers: ["Aplicación web por roles", "Historial y permisos", "Base de datos centralizada"],
+    result: "Una sola versión de la verdad, sin perseguir archivos.",
   },
   {
     asset: vluxAssets.integrations.whatsapp,
-    title: "Automatización con WhatsApp",
-    desc: "Bots, cotizaciones, seguimiento y reportes conectados a tus sistemas internos.",
-    tags: ["Bot", "CRM", "Alertas"],
+    title: "WhatsApp con seguimiento",
+    problem: "Cuando las solicitudes se pierden entre chats y nadie sabe el estatus.",
+    delivers: ["Registro de solicitudes", "Alertas y responsables", "Vista de pendientes"],
+    result: "Cada conversación termina en una acción visible.",
   },
   {
-    asset: vluxAssets.icons.users,
-    title: "CRM / ERP ligero",
-    desc: "Clientes, órdenes, inventario y tareas operativas sin implementar un sistema pesado.",
-    tags: ["Clientes", "Órdenes", "Permisos"],
-  },
-  {
-    asset: vluxAssets.icons.api,
-    title: "Integración con APIs",
-    desc: "Conectamos ERP, CRM, e-commerce, contabilidad y servicios externos.",
-    tags: ["REST", "Webhooks", "Datos"],
-  },
-  {
-    asset: vluxAssets.icons.network,
-    title: "Sistemas internos",
-    desc: "Paneles, bases de datos y herramientas a medida para operar con una sola fuente de verdad.",
-    tags: ["Paneles", "BD", "Equipos"],
+    asset: vluxAssets.icons.dashboardBars,
+    title: "Reportes y tableros claros",
+    problem: "Cuando dirección necesita respuestas sin esperar el cierre del reporte.",
+    delivers: ["KPIs por área", "Reportes automáticos", "Filtros para operación y dirección"],
+    result: "Visibilidad semanal o diaria sin trabajo manual repetido.",
   },
 ];
 
 const integrations = [
-  { name: "WhatsApp", asset: vluxAssets.integrations.whatsapp },
   { name: "Excel", asset: vluxAssets.integrations.excel },
-  { name: "SolidWorks", asset: vluxAssets.integrations.solidworks },
-  { name: "Global Shop", asset: vluxAssets.integrations.globalShop },
-  { name: "API", asset: vluxAssets.integrations.api },
+  { name: "WhatsApp", asset: vluxAssets.integrations.whatsapp },
+  { name: "Global Shops", asset: vluxAssets.integrations.globalShop },
+  { name: "ERP / CRM", asset: vluxAssets.icons.network },
   { name: "Base de datos", asset: vluxAssets.integrations.database },
 ];
 
 export function Solution() {
   return (
-    <section id="servicios" className="py-20 md:py-28 relative" data-section>
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--cyan-glow)]/40 to-transparent" />
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
+    <section id="modulos" className="relative py-16 md:py-24" data-section>
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="max-w-3xl">
-          <span className="chip">La solución</span>
+          <span className="chip">Módulos</span>
           <h2 className="section-title" data-section-heading>
-            VLUX transforma tu operación en un{" "}
-            <span className="text-gradient-cyan">sistema medible.</span>
+            Construimos solo el módulo que resuelve el cuello de botella.
           </h2>
           <p className="section-copy" data-section-copy>
-            Definimos el flujo ideal de tu negocio y lo aterrizamos en software, datos conectados e
-            IA útil para operar y decidir mejor, todos los días.
+            La mejora no empieza cambiando todo el negocio. Empieza con un proceso crítico, una
+            entrega clara y una adopción que el equipo pueda sostener.
           </p>
         </div>
 
-        <div
-          className="mt-12 vlux-glass-card vlux-neon-border p-5 md:p-7 rounded-3xl shadow-xl shadow-black/35"
-          data-stagger
-        >
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-5 items-center">
-            <div>
-              <div className="text-[10px] uppercase tracking-wider text-[color:var(--danger)] font-mono mb-3">
-                Input operativo
-              </div>
-              <div className="grid grid-cols-2 gap-2 text-xs text-white/70">
-                {[
-                  "Excel disperso",
-                  "WhatsApp informal",
-                  "Reportes manuales",
-                  "Sistemas aislados",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-lg border border-white/10 bg-black/30 px-3 py-2"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <ArrowRight className="hidden md:block w-5 h-5 text-[color:var(--cyan-glow)]" />
-
-            <div className="text-center">
-              <VluxAssetIcon
-                src={vluxAssets.icons.aiBrain}
-                alt="Capa de inteligencia artificial VLUX"
-                size="xl"
-                className="mx-auto"
-              />
-              <div className="mt-3 font-display font-semibold">Capa VLUX</div>
-              <div className="text-[11px] text-white/60 mt-1">Diseño · Software · Datos · IA</div>
-            </div>
-
-            <ArrowRight className="hidden md:block w-5 h-5 text-[color:var(--cyan-glow)]" />
-
-            <div>
-              <div className="text-[10px] uppercase tracking-wider text-[color:var(--cyan-glow)] font-mono mb-3">
-                Output inteligente
-              </div>
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                {[
-                  "Flujo automatizado",
-                  "Información centralizada",
-                  "KPIs en tiempo real",
-                  "Alertas inteligentes",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-lg border border-[color:var(--cyan-glow)]/25 bg-[color:var(--cyan-glow)]/5 px-3 py-2 text-white"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" data-stagger>
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="group surface-card-hover"
+        <div className="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-3" data-stagger>
+          {modules.map((module) => (
+            <article
+              key={module.title}
+              className="vlux-glass-card rounded-2xl p-5 md:p-6"
               data-stagger-item
             >
-              <div className="vlux-glass-card vlux-neon-border rounded-3xl p-5 shadow-xl shadow-black/30 md:p-6">
-                <VluxAssetIcon
-                  src={service.asset}
-                  alt={`${service.title} VLUX`}
-                  size="lg"
-                  className="mb-5"
-                />
-                <h3 className="font-display text-lg font-semibold">{service.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">{service.desc}</p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-mono text-white/60"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              <VluxAssetIcon
+                src={module.asset}
+                alt={`${module.title} VLUX`}
+                size="lg"
+                className="mb-5"
+              />
+              <h3 className="font-display text-xl font-semibold">{module.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-white/70">{module.problem}</p>
+
+              <div className="mt-5 space-y-2">
+                {module.delivers.map((item) => (
+                  <div key={item} className="flex items-start gap-2 text-sm text-white/70">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--positive)]" />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
-            </div>
+
+              <div className="mt-6 rounded-xl border border-[color:var(--cyan-glow)]/20 bg-[color:var(--cyan-glow)]/[0.04] p-4 text-sm font-medium leading-relaxed text-white">
+                {module.result}
+              </div>
+            </article>
           ))}
         </div>
 
-        <div className="mt-14">
-          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-            <div>
-              <span className="chip">Integraciones</span>
-              <h3 className="mt-4 text-2xl md:text-4xl font-display font-bold" data-section-heading>
-                Tus herramientas conectadas en una sola operación.
-              </h3>
-            </div>
-            <p className="max-w-xl text-sm md:text-base text-white/70" data-section-copy>
-              Conectamos los canales, hojas de cálculo, APIs y sistemas que ya usa tu equipo para
-              reducir capturas dobles y errores operativos.
+        <div className="mt-12 grid gap-6 rounded-2xl border border-white/10 bg-black/20 p-5 md:grid-cols-[0.8fr_1.2fr] md:p-6">
+          <div>
+            <span className="chip">Integraciones</span>
+            <h3 className="mt-4 font-display text-2xl font-bold">
+              Trabajamos con lo que ya usa tu equipo.
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-white/70">
+              La tecnología se usa como herramienta interna. La promesa principal es ordenar el
+              proceso y volverlo medible.
             </p>
           </div>
 
-          <div
-            className="mt-8 mx-auto grid w-full max-w-5xl grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3"
-            data-stagger
-          >
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-5" data-stagger>
             {integrations.map((integration) => (
               <div
                 key={integration.name}
-                className="group surface-card-hover"
+                className="rounded-xl border border-white/10 bg-white/[0.025] p-3 text-center"
                 data-stagger-item
               >
-                <div className="vlux-glass-card vlux-neon-border rounded-2xl p-4 text-center">
-                  <VluxAssetIcon
-                    src={integration.asset}
-                    alt={`${integration.name} integrado con VLUX`}
-                    size="md"
-                    className="mx-auto"
-                  />
-                  <div className="mt-3 text-xs font-mono text-white/70">{integration.name}</div>
-                </div>
+                <VluxAssetIcon
+                  src={integration.asset}
+                  alt={`${integration.name} integrado con VLUX`}
+                  size="sm"
+                  className="mx-auto"
+                />
+                <div className="mt-2 text-xs text-white/65">{integration.name}</div>
               </div>
             ))}
           </div>

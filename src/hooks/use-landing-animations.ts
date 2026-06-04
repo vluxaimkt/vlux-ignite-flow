@@ -26,7 +26,9 @@ export function useLandingAnimations(scopeRef: RefObject<HTMLElement | null>) {
       });
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap.set("main", { autoAlpha: 1 });
+        if (scopeRef.current) {
+          gsap.set(scopeRef.current, { autoAlpha: 1 });
+        }
         const snapPx = gsap.utils.snap(1);
 
         const heroTl = gsap.timeline({
@@ -34,18 +36,11 @@ export function useLandingAnimations(scopeRef: RefObject<HTMLElement | null>) {
         });
 
         heroTl
-          .from(
-            "[data-page-aurora]",
-            { autoAlpha: 0, duration: 1.1, ease: "power2.out" },
-          )
+          .from("[data-page-aurora]", { autoAlpha: 0, duration: 1.1, ease: "power2.out" })
           .from("[data-hero-chip]", { y: 20, scale: 0.95, autoAlpha: 0, duration: 0.55 }, "-=0.2")
           .from("[data-hero-title]", { y: 26, autoAlpha: 0, duration: 0.7 }, "-=0.28")
           .from("[data-hero-copy]", { y: 20, autoAlpha: 0, duration: 0.6 }, "-=0.5")
-          .from(
-            "[data-hero-cta]",
-            { y: 18, autoAlpha: 0, stagger: 0.08, duration: 0.55 },
-            "-=0.35",
-          )
+          .from("[data-hero-cta]", { y: 18, autoAlpha: 0, stagger: 0.08, duration: 0.55 }, "-=0.35")
           .from(
             "[data-hero-stat]",
             { y: 14, autoAlpha: 0, stagger: 0.06, duration: 0.45 },
@@ -62,17 +57,19 @@ export function useLandingAnimations(scopeRef: RefObject<HTMLElement | null>) {
             "-=0.72",
           );
 
-        gsap.utils.toArray<HTMLElement>("[data-hero-visual] .vlux-asset-icon").forEach((icon, i) => {
-          gsap.to(icon, {
-            y: i % 2 === 0 ? -4 : 4,
-            autoAlpha: i % 2 === 0 ? 1 : 0.96,
-            duration: 4.2 + i * 0.4,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-            snap: { y: 1 },
+        gsap.utils
+          .toArray<HTMLElement>("[data-hero-visual] .vlux-asset-icon")
+          .forEach((icon, i) => {
+            gsap.to(icon, {
+              y: i % 2 === 0 ? -4 : 4,
+              autoAlpha: i % 2 === 0 ? 1 : 0.96,
+              duration: 4.2 + i * 0.4,
+              repeat: -1,
+              yoyo: true,
+              ease: "sine.inOut",
+              snap: { y: 1 },
+            });
           });
-        });
 
         gsap.utils.toArray<HTMLElement>(".vlux-glow").forEach((glow, i) => {
           gsap.to(glow, {
@@ -195,45 +192,48 @@ export function useLandingAnimations(scopeRef: RefObject<HTMLElement | null>) {
         });
       });
 
-      mm.add("(min-width: 1024px) and (pointer: fine) and (prefers-reduced-motion: no-preference)", () => {
-        const targets = gsap.utils.toArray<HTMLElement>(
-          ".surface-card-hover, .vlux-premium-button, .stat-pill",
-        );
+      mm.add(
+        "(min-width: 1024px) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
+        () => {
+          const targets = gsap.utils.toArray<HTMLElement>(
+            ".surface-card-hover, .vlux-premium-button, .stat-pill",
+          );
 
-        const cleanups: Array<() => void> = [];
+          const cleanups: Array<() => void> = [];
 
-        targets.forEach((el) => {
-          const xTo = gsap.quickTo(el, "x", { duration: 0.34, ease: "power3.out" });
-          const yTo = gsap.quickTo(el, "y", { duration: 0.34, ease: "power3.out" });
+          targets.forEach((el) => {
+            const xTo = gsap.quickTo(el, "x", { duration: 0.34, ease: "power3.out" });
+            const yTo = gsap.quickTo(el, "y", { duration: 0.34, ease: "power3.out" });
 
-          const handleMove = (event: PointerEvent) => {
-            const rect = el.getBoundingClientRect();
-            const relX = (event.clientX - rect.left) / rect.width - 0.5;
-            const relY = (event.clientY - rect.top) / rect.height - 0.5;
-            const maxShift = el.classList.contains("vlux-premium-button") ? 4 : 6;
+            const handleMove = (event: PointerEvent) => {
+              const rect = el.getBoundingClientRect();
+              const relX = (event.clientX - rect.left) / rect.width - 0.5;
+              const relY = (event.clientY - rect.top) / rect.height - 0.5;
+              const maxShift = el.classList.contains("vlux-premium-button") ? 4 : 6;
 
-            xTo(snapPx(gsap.utils.clamp(-maxShift, maxShift, relX * maxShift * 2)));
-            yTo(snapPx(gsap.utils.clamp(-maxShift, maxShift, relY * maxShift * 2)));
-          };
+              xTo(snapPx(gsap.utils.clamp(-maxShift, maxShift, relX * maxShift * 2)));
+              yTo(snapPx(gsap.utils.clamp(-maxShift, maxShift, relY * maxShift * 2)));
+            };
 
-          const handleLeave = () => {
-            xTo(0);
-            yTo(0);
-          };
+            const handleLeave = () => {
+              xTo(0);
+              yTo(0);
+            };
 
-          el.addEventListener("pointermove", handleMove);
-          el.addEventListener("pointerleave", handleLeave);
+            el.addEventListener("pointermove", handleMove);
+            el.addEventListener("pointerleave", handleLeave);
 
-          cleanups.push(() => {
-            el.removeEventListener("pointermove", handleMove);
-            el.removeEventListener("pointerleave", handleLeave);
+            cleanups.push(() => {
+              el.removeEventListener("pointermove", handleMove);
+              el.removeEventListener("pointerleave", handleLeave);
+            });
           });
-        });
 
-        return () => {
-          cleanups.forEach((fn) => fn());
-        };
-      });
+          return () => {
+            cleanups.forEach((fn) => fn());
+          };
+        },
+      );
 
       return () => {
         mm.revert();

@@ -55,7 +55,12 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <div className="hidden md:block">
-            <a href={site.bookingUrl} className="vlux-premium-button px-6 py-2.5">
+            <a
+              href={site.bookingUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="vlux-premium-button px-6 py-2.5"
+            >
               Agendar diagnóstico
             </a>
           </div>
@@ -84,6 +89,8 @@ export function Header() {
             ))}
             <a
               href={site.bookingUrl}
+              target="_blank"
+              rel="noreferrer"
               className="vlux-premium-button mt-4 w-full"
               onClick={() => setOpen(false)}
             >
@@ -95,4 +102,3 @@ export function Header() {
     </header>
   );
 }
-

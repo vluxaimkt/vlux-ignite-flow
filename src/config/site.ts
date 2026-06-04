@@ -1,17 +1,19 @@
 // Central config — edit contact info, WhatsApp and email here.
+const contactUrl =
+  "https://wa.me/527441452048?text=Hola%20VLUX%2C%20quiero%20agendar%20un%20diagn%C3%B3stico%20operativo%20para%20revisar%20procesos%20en%20Excel%2C%20WhatsApp%20o%20reportes%20manuales.";
+
 export const site = {
   brand: "VLUX",
   tagline: "AI Transformation Partner",
   email: "vluxmarketing@gmail.com",
   phone: "744 145 2048",
-  whatsapp:
-    "https://wa.me/527441452048?text=%C2%A1Hola%20Vlux!%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s%20acerca%20de%20los%20demos%20que%20tienen%20disponibles.",
+  whatsapp: contactUrl,
   location: "Ciudad de México",
-  bookingUrl: "#agendar",
+  bookingUrl: contactUrl,
   nav: [
-    { label: "Servicios", href: "#servicios" },
+    { label: "Problema", href: "#problema" },
+    { label: "Módulos", href: "#modulos" },
     { label: "Proceso", href: "#proceso" },
-    { label: "Casos de uso", href: "#casos" },
-    { label: "Demos", href: "#demos" },
+    { label: "Contacto", href: "#contacto" },
   ],
 };

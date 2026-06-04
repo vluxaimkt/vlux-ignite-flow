@@ -3,8 +3,6 @@ import { Header } from "@/components/landing/header";
 import { Hero } from "@/components/landing/hero";
 import { Problem } from "@/components/landing/problem";
 import { Solution } from "@/components/landing/solution";
-import { UseCases } from "@/components/landing/use-cases";
-import { Demos } from "@/components/landing/demos";
 import { Process } from "@/components/landing/process";
 import { FinalCTA } from "@/components/landing/final-cta";
 import { Footer } from "@/components/landing/footer";
@@ -15,17 +13,17 @@ import { useRef } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "VLUX · Convierte procesos manuales en sistemas inteligentes" },
+      { title: "VLUX · Automatiza procesos hechos en Excel y WhatsApp" },
       {
         name: "description",
         content:
-          "VLUX automatiza operaciones, conecta herramientas y aplica IA para que tu empresa opere con más control, visibilidad y velocidad.",
+          "VLUX convierte procesos manuales, hojas de cálculo y seguimiento por WhatsApp en sistemas operativos claros, medibles y fáciles de adoptar.",
       },
-      { property: "og:title", content: "VLUX · AI Transformation Partner" },
+      { property: "og:title", content: "VLUX · Operación digital a la medida" },
       {
         property: "og:description",
         content:
-          "Automatización, software a la medida, dashboards e IA aplicada para empresas que operan con Excel, WhatsApp y sistemas desconectados.",
+          "Automatización, software a la medida y reportes para empresas que operan con Excel, WhatsApp y herramientas desconectadas.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -53,10 +51,10 @@ function Index() {
   useLandingAnimations(pageRef);
 
   return (
-    <main ref={pageRef} className="bg-[#030712] relative min-h-screen overflow-x-hidden">
+    <main ref={pageRef} className="bg-[#07111a] relative min-h-screen overflow-x-hidden">
       <div
         data-page-aurora
-        className="fixed inset-0 pointer-events-none [background-size:140%_140%] bg-[radial-gradient(circle_at_16%_12%,rgba(0,224,255,0.22),transparent_34rem),radial-gradient(circle_at_80%_20%,rgba(56,189,248,0.16),transparent_36rem),radial-gradient(circle_at_84%_62%,rgba(0,255,195,0.12),transparent_36rem),linear-gradient(145deg,rgba(4,18,28,0.88),rgba(6,26,40,0.86))]"
+        className="fixed inset-0 pointer-events-none [background-size:140%_140%] bg-[radial-gradient(circle_at_14%_8%,rgba(0,166,180,0.12),transparent_28rem),radial-gradient(circle_at_78%_18%,rgba(18,116,136,0.08),transparent_34rem),linear-gradient(145deg,rgba(5,13,22,0.96),rgba(8,20,30,0.94))]"
       />
 
       <Header />
@@ -64,8 +62,6 @@ function Index() {
       <Problem />
       <Solution />
       <Process />
-      <UseCases />
-      <Demos />
       <FinalCTA />
       <Footer />
       <StickyMobileCTA />
